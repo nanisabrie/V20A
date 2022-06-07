@@ -10,7 +10,7 @@ let url = `https://api.lolhuman.xyz/api/gimage?apikey=9b817532fadff8fc7cb86862&q
 await conn.sendHydrated(m.chat, caption, wm, url, null, null, null, null, [
       ['Gimage1', usedPrefix + 'gimage1'],
       ['Gimage2', usedPrefix + 'gimage2'],
-      ['Gimage3', usedPrefix + 'gimage3'],
+      ['Gimage3', usedPrefix + 'gimage3']
     ], m)
     }
 
@@ -23,7 +23,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Gimage2', usedPrefix + 'gimage2'],
       ['Gimage3', usedPrefix + 'gimage3'],
-      ['Gimage4', usedPrefix + 'gimage4'],
+      ['Gimage4', usedPrefix + 'gimage4']
     ], m)
     }
     
@@ -36,7 +36,7 @@ let x = jp.url
 await conn.sendHydrated(m.chat, caption, wm, x, null, null, null, null, [
       ['Gimage3', usedPrefix + 'gimage1'],
       ['Gimage4', usedPrefix + 'gimage4'],
-      ['Gimage5', usedPrefix + 'gimage5'],
+      ['Gimage5', usedPrefix + 'gimage5']
     ], m)
     }
 
@@ -49,7 +49,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.url, null, null, null, null, [
       ['Gimage4', usedPrefix + 'gimage1'],
       ['Gimage5', usedPrefix + 'gimage5'],
-      ['Gimage6', usedPrefix + 'gimage6'],
+      ['Gimage6', usedPrefix + 'gimage6']
     ], m)
     }
 
@@ -62,7 +62,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.url, null, null, null, null, [
       ['Gimage5', usedPrefix + 'gimage1'],
       ['Gimage6', usedPrefix + 'gimage6'],
-      ['Gimage', usedPrefix + 'gimage'],
+      ['Gimage', usedPrefix + 'gimage']
     ], m)
     }
 
@@ -75,7 +75,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Gimage6', usedPrefix + 'gimage6'],
       ['Gimage', usedPrefix + 'gimage'],
-      ['Gimage1', usedPrefix + 'gimage1'],
+      ['Gimage1', usedPrefix + 'gimage1']
     ], m)
     }
 

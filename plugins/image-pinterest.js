@@ -13,7 +13,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x, null, null, null, null, [
       ['Pinterest1', usedPrefix + 'pinterest1'],
       ['Pinterest2', usedPrefix + 'pinterest2'],
-      ['Pinterest3', usedPrefix + 'pinterest3'],
+      ['Pinterest3', usedPrefix + 'pinterest3']
     ], m)
     }
 
@@ -23,7 +23,7 @@ let url = `https://leyscoders-api.herokuapp.com/api/pinsearch?q=${text}&apikey=M
 await conn.sendHydrated(m.chat, caption, wm, url, null, null, null, null, [
       ['Pinterest2', usedPrefix + 'pinterest2'],
       ['Pinterest3', usedPrefix + 'pinterest3'],
-      ['Pinterest4', usedPrefix + 'pinterest4'],
+      ['Pinterest4', usedPrefix + 'pinterest4']
     ], m)
     }
     
@@ -36,7 +36,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Pinterest3', usedPrefix + 'pinterest1'],
       ['Pinterest4', usedPrefix + 'pinterest4'],
-      ['Pinterest5', usedPrefix + 'pinterest5'],
+      ['Pinterest5', usedPrefix + 'pinterest5']
     ], m)
     }
 
@@ -49,7 +49,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Pinterest4', usedPrefix + 'pinterest1'],
       ['Pinterest5', usedPrefix + 'pinterest5'],
-      ['Pinterest6', usedPrefix + 'pinterest6'],
+      ['Pinterest6', usedPrefix + 'pinterest6']
     ], m)
     }
 
@@ -62,7 +62,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Pinterest5', usedPrefix + 'pinterest1'],
       ['Pinterest6', usedPrefix + 'pinterest6'],
-      ['Pinterest', usedPrefix + 'pinterest'],
+      ['Pinterest', usedPrefix + 'pinterest']
     ], m)
     }
 
@@ -75,7 +75,7 @@ let x = jp.data
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Pinterest6', usedPrefix + 'pinterest6'],
       ['Pinterest', usedPrefix + 'pinterest'],
-      ['Pinterest1', usedPrefix + 'pinterest1'],
+      ['Pinterest1', usedPrefix + 'pinterest1']
     ], m)
     }
 
@@ -94,7 +94,7 @@ let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
       ['Pinterest', usedPrefix + 'pinterest'],
       ['Pinterest1', usedPrefix + 'pinterest1'],
-      ['Pinterest2', usedPrefix + 'Pinterest2'],
+      ['Pinterest2', usedPrefix + 'Pinterest2']
     ], m)
     }
 
