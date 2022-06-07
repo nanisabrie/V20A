@@ -3,7 +3,7 @@ export function before(m) {
     if (user.afk > -1) {
         let caption = `
   *Kamu berhenti AFK* ${user.afkReason ? ' setelah ' + user.afkReason : ''}
-  Selama *${(new Date - user.afk).toTimeString()}*
+  Selama ${(new Date - user.afk).toTimeString()}
   `.trim()
 conn.sendButton(m.chat, caption, author, null, [
         ['Afk Lagi', '.afk Saya Afk lagi :l']
@@ -23,7 +23,7 @@ conn.sendButton(m.chat, caption, author, null, [
         let caption = `
   Jangan tag dia!
   Dia sedang AFK *${reason ? 'dengan alasan ' + reason : 'tanpa alasan'}*
-  Selama *${(new Date - afkTime).toTimeString()}*
+  Selama ${(new Date - afkTime).toTimeString()}
   `.trim()
 conn.sendButton(m.chat, caption, author, null, [
         ['Berhenti', 'Huuu']

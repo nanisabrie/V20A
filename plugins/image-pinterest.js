@@ -1,7 +1,7 @@
 import fetch from 'node-fetch'
 import { pinterest } from '@bochilteam/scraper'
 
-let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
+let handler = async(m, { conn, usedPrefix, text, args, command }) => {
 if (!text) return m.reply(`Example : ${usedPrefix + command} query`
 
 if (command == 'pinterest') {
