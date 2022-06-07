@@ -1,4 +1,4 @@
-# Rain-BotV2
+# HINATA
 
 <p align="center">
 	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrF6fyFoGCHmsmOXWjFxIXh-467D1nRhA4mQ&usqp=CAU" width="75%" style="margin-left: auto;margin-right: auto;display: block;">
@@ -9,16 +9,16 @@
 <a href="#"><img title="RAIN - BOTV2" src="https://img.shields.io/badge/Rainbotv2-green?colorA=%23ff0000&colorB=%23017e40&style=for-the-badge"></a>
 </p>
 <p align="center">
-<a href="https://github.com/Rizxyu"><img title="Rizxyu" src="https://img.shields.io/badge/Author-Rizky-red.svg?style=for-the-badge&logo=github"></a>
+<a href="https://github.com/AyGemuy"><img title="AyGemuy" src="https://img.shields.io/badge/Author-Rizky-red.svg?style=for-the-badge&logo=github"></a>
 </p>
 <p align="center">
 </p>
 </div>
 <p align="center">
-<a href="https://github.com/Rizxyu/followers"><img title="Followers" src="https://img.shields.io/github/followers/Rizxyu?style=flat-square"></a>
-<a href="https://github.com/Rizxyu/Rain-BotV2/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/Rizxyu/Rain-BotV2?style=flat-square"></a>
-<a href="https://github.com/Rizxyu/Rain-BotV2/network/members"><img title="Forks" src="https://img.shields.io/github/forks/Rizxyu/Rain-BotV2?style=flat-square"></a>
-<a href="https://github.com/Rizxyu/Rain-BotV2/watchers"><img title="watchers" src="https://img.shields.io/github/watchers/Rizxyu/Rain-BotV2?style=flat-square"></a>
+<a href="https://github.com/AyGemuy/followers"><img title="Followers" src="https://img.shields.io/github/followers/AyGemuy?style=flat-square"></a>
+<a href="https://github.com/AyGemuy/HINATA/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/AyGemuy/HINATA?style=flat-square"></a>
+<a href="https://github.com/AyGemuy/HINATA/network/members"><img title="Forks" src="https://img.shields.io/github/forks/AyGemuy/HINATA?style=flat-square"></a>
+<a href="https://github.com/AyGemuy/HINATA/watchers"><img title="watchers" src="https://img.shields.io/github/watchers/AyGemuy/HINATA?style=flat-square"></a>
 </p>
 
 
@@ -33,7 +33,7 @@
 
 #### ✍️ Editing the file
 
-Edit the required value in [`config.js`](https://github.com/Rizxyu/Rain-BotV2/blob/main/config.js)
+Edit the required value in [`config.js`](https://github.com/AyGemuy/HINATA/blob/main/config.js)
 
 #### Heroku Buildpack
 | BuildPack | LINK |
@@ -55,8 +55,8 @@ $ pkg install git -y
 $ pkg install nodejs -y
 $ pkg install ffmpeg -y
 $ pkg install imagemagick -y
-$ git clone https://github.com/Rizxyu/Rain-BotV2
-$ cd Rain-BotV2
+$ git clone https://github.com/AyGemuy/HINATA
+$ cd HINATA
 $ npm i 
 ```
 
@@ -96,14 +96,14 @@ apt install wget curl git ffmpeg imagemagick build-essential libcairo2-dev libpa
 
 ---------
 
-[ INSTALLING NODEJS & Rain-BotV2 ]
+[ INSTALLING NODEJS & HINATA ]
 
 ```bash
 ubuntu
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs gcc g++ make
-git clone https://github.com/Rizxyu/Rain-BotV2
-cd Rain-BotV2
+git clone https://github.com/AyGemuy/HINATA
+cd HINATA
 npm install
 npm update
 ```
@@ -118,8 +118,8 @@ npm update
 * Download And Install ImageMagick [`Click Here`](https://imagemagick.org/script/download.php)
 
 ```bash
-git clone https://github.com/Rizxyu/Rain-BotV2
-cd Rain-BotV2
+git clone https://github.com/AyGemuy/HINATA
+cd HINATA
 npm install
 npm update
 ```
@@ -235,4 +235,4 @@ conn.sendButton(m.chat, 'Hello world!', '@BochilGaming', 'https://github.com/Boc
 #### Special Thanks to
 [![Nurutomo](https://github.com/Nurutomo.png?size=100)](https://github.com/Nurutomo)
 [![BochilGaming](https://github.com/BochilGaming.png?size=100)](https://github.com/BochilGaming)
-[![Rizxyu](https://github.com/Rizxyu.png?size=100)](https://github.com/Rizxyu)
+[![AyGemuy](https://github.com/AyGemuy.png?size=100)](https://github.com/AyGemuy)
