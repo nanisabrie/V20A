@@ -1,9 +1,9 @@
-FROM buildpack-deps:lts-buster
+FROM buildpack-deps:buster
 
 RUN groupadd --gid 1000 node \
   && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
-ENV NODE_VERSION lts
+ENV NODE_VERSION 16.13.1
 
 RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && case "${dpkgArch##*-}" in \
@@ -44,7 +44,7 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && node --version \
   && npm --version
 
-ENV YARN_VERSION lts
+ENV YARN_VERSION 1.22.18
 
 RUN set -ex \
   && for key in \
@@ -77,9 +77,9 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 COPY package.json .
-RUN npm install -g npm
+RUN npm install -g npm@8.12.1
 RUN npm install -g pm2
 RUN npm update
 COPY . .
 RUN pm2 save
-CMD ["pm2-runtime", "index.js"]`
+CMD ["pm2-runtime", "index.js"]
