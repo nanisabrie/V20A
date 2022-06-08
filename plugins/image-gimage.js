@@ -1,16 +1,16 @@
 import fetch from 'node-fetch'
 import { googleImage } from '@bochilteam/scraper'
 
-let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-if (!text) return m.reply(`Example : ${usedPrefix + command} query`
+let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
+if (!text) return m.reply(`Example : ${usedPrefix + command} query`)
 
 if (command == 'gimage') {
 let caption = `*Hasil pencarian* ${text}\n\n*Note:* Lolhuman`
 let url = `https://api.lolhuman.xyz/api/gimage?apikey=9b817532fadff8fc7cb86862&query=${text}`
 await conn.sendHydrated(m.chat, caption, wm, url, null, null, null, null, [
-      ['Gimage1', usedPrefix + 'gimage1'],
-      ['Gimage2', usedPrefix + 'gimage2'],
-      ['Gimage3', usedPrefix + 'gimage3']
+      ['Gimage1', usedPrefix + 'gimage1 ' + text],
+      ['Gimage2', usedPrefix + 'gimage2 ' + text],
+      ['Gimage3', usedPrefix + 'gimage3 ' + text]
     ], m)
     }
 
@@ -21,9 +21,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Gimage2', usedPrefix + 'gimage2'],
-      ['Gimage3', usedPrefix + 'gimage3'],
-      ['Gimage4', usedPrefix + 'gimage4']
+      ['Gimage2', usedPrefix + 'gimage2 ' + text],
+      ['Gimage3', usedPrefix + 'gimage3 ' + text],
+      ['Gimage4', usedPrefix + 'gimage4 ' + text]
     ], m)
     }
     
@@ -34,9 +34,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.url
 await conn.sendHydrated(m.chat, caption, wm, x, null, null, null, null, [
-      ['Gimage3', usedPrefix + 'gimage1'],
-      ['Gimage4', usedPrefix + 'gimage4'],
-      ['Gimage5', usedPrefix + 'gimage5']
+      ['Gimage3', usedPrefix + 'gimage1 ' + text],
+      ['Gimage4', usedPrefix + 'gimage4 ' + text],
+      ['Gimage5', usedPrefix + 'gimage5 ' + text]
     ], m)
     }
 
@@ -47,9 +47,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.url, null, null, null, null, [
-      ['Gimage4', usedPrefix + 'gimage1'],
-      ['Gimage5', usedPrefix + 'gimage5'],
-      ['Gimage6', usedPrefix + 'gimage6']
+      ['Gimage4', usedPrefix + 'gimage1 ' + text],
+      ['Gimage5', usedPrefix + 'gimage5 ' + text],
+      ['Gimage6', usedPrefix + 'gimage6 ' + text]
     ], m)
     }
 
@@ -60,9 +60,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.url, null, null, null, null, [
-      ['Gimage5', usedPrefix + 'gimage1'],
-      ['Gimage6', usedPrefix + 'gimage6'],
-      ['Gimage', usedPrefix + 'gimage']
+      ['Gimage5', usedPrefix + 'gimage1 ' + text],
+      ['Gimage6', usedPrefix + 'gimage6 ' + text],
+      ['Gimage', usedPrefix + 'gimage ' + text]
     ], m)
     }
 
@@ -73,9 +73,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Gimage6', usedPrefix + 'gimage6'],
-      ['Gimage', usedPrefix + 'gimage'],
-      ['Gimage1', usedPrefix + 'gimage1']
+      ['Gimage6', usedPrefix + 'gimage6 ' + text],
+      ['Gimage', usedPrefix + 'gimage ' + text],
+      ['Gimage1', usedPrefix + 'gimage1 ' + text]
     ], m)
     }
 

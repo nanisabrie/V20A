@@ -1,8 +1,8 @@
 import fetch from 'node-fetch'
 import { pinterest } from '@bochilteam/scraper'
 
-let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-if (!text) return m.reply(`Example : ${usedPrefix + command} query`
+let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
+if (!text) return m.reply(`Example : ${usedPrefix + command} query`)
 
 if (command == 'pinterest') {
 let caption = `*Hasil pencarian* ${text}\n\n*Note:* Lolhuman`
@@ -11,9 +11,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x, null, null, null, null, [
-      ['Pinterest1', usedPrefix + 'pinterest1'],
-      ['Pinterest2', usedPrefix + 'pinterest2'],
-      ['Pinterest3', usedPrefix + 'pinterest3']
+      ['Pinterest1', usedPrefix + 'pinterest1 ' + text],
+      ['Pinterest2', usedPrefix + 'pinterest2 ' + text],
+      ['Pinterest3', usedPrefix + 'pinterest3 ' + text]
     ], m)
     }
 
@@ -21,9 +21,9 @@ if (command == 'pinterest1') {
 let caption = `*Hasil pencarian* ${text}\n\n*Note:* Leys`
 let url = `https://leyscoders-api.herokuapp.com/api/pinsearch?q=${text}&apikey=MIMINGANZ`
 await conn.sendHydrated(m.chat, caption, wm, url, null, null, null, null, [
-      ['Pinterest2', usedPrefix + 'pinterest2'],
-      ['Pinterest3', usedPrefix + 'pinterest3'],
-      ['Pinterest4', usedPrefix + 'pinterest4']
+      ['Pinterest2', usedPrefix + 'pinterest2 ' + text],
+      ['Pinterest3', usedPrefix + 'pinterest3 ' + text],
+      ['Pinterest4', usedPrefix + 'pinterest4 ' + text]
     ], m)
     }
     
@@ -34,9 +34,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Pinterest3', usedPrefix + 'pinterest1'],
-      ['Pinterest4', usedPrefix + 'pinterest4'],
-      ['Pinterest5', usedPrefix + 'pinterest5']
+      ['Pinterest3', usedPrefix + 'pinterest1 ' + text],
+      ['Pinterest4', usedPrefix + 'pinterest4 ' + text],
+      ['Pinterest5', usedPrefix + 'pinterest5 ' + text]
     ], m)
     }
 
@@ -47,9 +47,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Pinterest4', usedPrefix + 'pinterest1'],
-      ['Pinterest5', usedPrefix + 'pinterest5'],
-      ['Pinterest6', usedPrefix + 'pinterest6']
+      ['Pinterest4', usedPrefix + 'pinterest1 ' + text],
+      ['Pinterest5', usedPrefix + 'pinterest5 ' + text],
+      ['Pinterest6', usedPrefix + 'pinterest6 ' + text]
     ], m)
     }
 
@@ -60,9 +60,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Pinterest5', usedPrefix + 'pinterest1'],
-      ['Pinterest6', usedPrefix + 'pinterest6'],
-      ['Pinterest', usedPrefix + 'pinterest']
+      ['Pinterest5', usedPrefix + 'pinterest1 ' + text],
+      ['Pinterest6', usedPrefix + 'pinterest6 ' + text],
+      ['Pinterest', usedPrefix + 'pinterest ' + text]
     ], m)
     }
 
@@ -73,9 +73,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.data
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Pinterest6', usedPrefix + 'pinterest6'],
-      ['Pinterest', usedPrefix + 'pinterest'],
-      ['Pinterest1', usedPrefix + 'pinterest1']
+      ['Pinterest6', usedPrefix + 'pinterest6 ' + text],
+      ['Pinterest', usedPrefix + 'pinterest ' + text],
+      ['Pinterest1', usedPrefix + 'pinterest1 ' + text]
     ], m)
     }
 
@@ -92,9 +92,9 @@ let js = await fetch(url)
 let jp = await js.json()
 let x = jp.result
 await conn.sendHydrated(m.chat, caption, wm, x.getRandom(), null, null, null, null, [
-      ['Pinterest', usedPrefix + 'pinterest'],
-      ['Pinterest1', usedPrefix + 'pinterest1'],
-      ['Pinterest2', usedPrefix + 'Pinterest2']
+      ['Pinterest', usedPrefix + 'pinterest ' + text],
+      ['Pinterest1', usedPrefix + 'pinterest1 ' + text],
+      ['Pinterest2', usedPrefix + 'Pinterest2 ' + text]
     ], m)
     }
 
