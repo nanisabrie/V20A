@@ -66,8 +66,8 @@ let keyalpha = api[Math.floor(Math.random() * api.length)]
 global.apikeys = keyalpha
 
 // Sticker WM
-//global.packname = '███╗░░██╗██╗██╗░░██╗\n████╗░██║██║██║░░██║\n██╔██╗██║██║███████║\n██║╚████║██║██╔══██║\n██║░╚███║██║██║░░██║\n╚═╝░░╚══╝╚═╝╚═╝░░╚═╝'
-global.packname = 'Created By'
+global.packname = '███╗░░██╗██╗██╗░░██╗\n████╗░██║██║██║░░██║\n██╔██╗██║██║███████║\n██║╚████║██║██╔══██║\n██║░╚███║██║██║░░██║\n╚═╝░░╚══╝╚═╝╚═╝░░╚═╝'
+//global.packname = 'Created By'
 global.author = 'Hinata-Md'
 global.wm = "Hinata-Md X Wudysoft"
 global.multiplier = 69 // The higher, The harder levelup
