@@ -1,69 +1,18 @@
-import axios from 'axios'
-
-let handler = async (m, { conn, args, usedPrefix, command }) => {
-    if (!args.length) throw `contoh:\n${usedPrefix + command} An-Nisaa 1`
-    let ayat = "ayat"
-    let bhs = ""
-    const response = await axios.get('https://api.quran.sutanlab.id/surah')
-    const surah = response.data
-    try {
-        var idx = surah.data.findIndex(function (post, index) {
-            if ((post.name.transliteration.id.toLowerCase() == args[0].toLowerCase()) || (post.name.transliteration.en.toLowerCase() == args[0].toLowerCase()))
-                return true;
-        });
-        nmr = surah.data[idx].number
-        if (!isNaN(nmr)) {
-            if (args.length > 2) {
-                ayat += args[1]
-            }
-            if (args.length == 2) {
-                var last = function last(array, n) {
-                    if (array == null) return void 0;
-                    if (n == null) return array[array.length - 1];
-                    return array.slice(Math.max(array.length - n, 0));
-                };
-                ayat += last(args)
-            }
-            let pesan = ""
-            if (isNaN(ayat)) {
-                const responsi2 = await axios.get('https://raw.githubusercontent.com/penggguna/QuranJSON/master/surah/' + nmr + '.json')
-                const { name, name_translations, number_of_ayah, number_of_surah, recitations } = responsi2.data
-                pesan += pesan + "Audio Quran Surah ke-" + number_of_surah + " " + name + " (" + name_translations.ar + ") " + "dengan jumlah " + number_of_ayah + " ayat\n"
-                pesan += pesan + "Dilantunkan oleh " + recitations[0].name + " : " + recitations[0].audio_url + "\n"
-                pesan += pesan + "Dilantunkan oleh " + recitations[1].name + " : " + recitations[1].audio_url + "\n"
-                pesan += pesan + "Dilantunkan oleh " + recitations[2].name + " : " + recitations[2].audio_url + "\n"
-                conn.reply(m.chat, pesan, m)
-            } else {
-                try {
-                    const responsi2 = await axios.get('https://api.quran.sutanlab.id/surah/' + nmr + "/" + ayat)
-                    const { data } = responsi2.data
-                    var last = function last(array, n) {
-                        if (array == null) return void 0;
-                        if (n == null) return array[array.length - 1];
-                        return array.slice(Math.max(array.length - n, 0));
-                    };
-                    bhs += last(args)
-                    let pesan = ""
-                    pesan += pesan + data.text.arab + "\n\n"
-                    if (bhs +== "en") {
-                        pesan += pesan + data.translation.en
-                    } else {
-                        pesan += pesan + data.translation.id
-                    }
-                    pesan += pesan + "\n\n(Q.S. " + data.surah.name.transliteration.id + ":" + args[1] + ")"
-                    conn.sendFile(m.chat, data.audio.secondary[0], `${data.surah.name.transliteration.id}.mp3`, false, m)
-                    conn.reply(m.chat, pesan, m)
-                } catch (e) {
-                    throw '_*Ayatnya satu aja kak*_'
-                }
-            }
-        } else {
-            m.reply(`contoh:\n${usedPrefix + command} An-Nisaa 1\n\ndaftar surah:\n*${usedPrefix}daftarsurah* - untuk melihat daftar surah\n*${usedPrefix}quran* - versi mudah`)
-        }
-    } catch (e) {
-        throw `_*Surah tidak ditemukan!*_\n\n*${usedPrefix}daftarsurah* - untuk melihat daftar surah\n*${usedPrefix}quran* - versi mudah`
-    }
+import {alquran} from '@bochilteam/scraper'
+let handler = async (m, { args, usedPrefix, command }) => {
+    if (!(args[0] || args[1])) throw `contoh:\n${usedPrefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+    if (isNaN(args[0]) || isNaN(args[1])) throw `contoh:\n${usedPrefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
+    let api = await alquran()
+    let mes = `
+${api[args[0] - 1].ayahs[args[1] - 1].text.ar}
+    
+${api[args[0] - 1].ayahs[args[1] - 1].translation.id}
+( Q.S ${api[args[0] - 1 ].asma.id.short} : ${api[args[0] - 1].ayahs[args[1] - 1].number.insurah} )
+`.trim()
+    m.reply(mes)
+    conn.sendFile(m.chat, api[args[0] - 1].ayahs[args[1] - 1].audio.url, '', '', m)
 }
+
 handler.help = ['ayta'].map(v => v + ' *surah no*')
 handler.tags = ['islam']
 handler.command = /^(ayat(mp3|audio)|ayta)$/i

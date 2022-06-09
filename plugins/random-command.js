@@ -257,8 +257,27 @@ Pencet di bawah bang ☺️`, author, null, [
             ], m)
 }
 
+if (command == 'apkdown') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} com.whatsapp`
+let f = await fetch(`https://api.lolhuman.xyz/api/apkdownloader?apikey=9b817532fadff8fc7cb86862&package=${text}`)
+let x = await f.json()
+let caption = `
+*Apk Name:* ${x.result.apk_name}
+*Version:* ${x.result.apk_version}
+*Author:* ${x.result.apk_author}
+`
+await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_link, 'Link', null, null, [
+      ['Download', `${usedPrefix + command}`],
+      ['HostApk', usedPrefix + 'hostapk'],
+      ['Menu', usedPrefix + 'menu']
+    ], m)
+    await m.reply('File dikirim..')
+    await conn.sendFile(m.chat, x.result.apk_link, x.result.apk_link, '', m)
 }
-handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa']
+
+
+}
+handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown']
 handler.tags = ['random']
 
 export default handler

@@ -4,26 +4,23 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (!(args[0] || args[1])) throw `Contoh:\n${usedPrefix + command} 1 2\n\nMaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
     if (isNaN(args[0]) || isNaN(args[1])) throw `contoh:\n${usedPrefix + command} 1 2\n\nmaka hasilnya adalah surah Al-Fatihah ayat 2 beserta audionya, dan ayatnya 1 aja`
 
-    let res = await fetch(`https://api.lolhuman.xyz/api/quran/args[0]/args[1]?apikey=9b817532fadff8fc7cb86862`)
+    let res = await fetch(`https://anabotofc.herokuapp.com/api/muslim/quran?surah=args[0]&ayat=args[1]&apikey=AnaBot`)
     if (!res.ok) throw eror
     let json = await res.json()
     if (json.status != 'OK.') return m.reply(json.result.message)
     m.reply(conn.format(json))
     let mes = `
-${json.result.asma}
-${json.result.surah}
-${json.result.jumlah_ayat}
-${json.result.type}
+${json.result.data.text.arab}
+    
+${json.result.data.translation.id}
 
-${json.result.ayat.ayat}
-${json.result.ayat.arab}
-${json.result.ayat.indonesia}
-${json.result.ayat.latin}
-( Q.S ${json.result.surah} : ${json.result.nomor} )
+( Q.S ${json.result.data.surah.name.transliteration.id} : ${json.result.data.number.inSurah} )
 `.trim()
     m.reply(mes)
+    conn.sendFile(m.chat, json.result.data.audio.primary, 'audio.mp3', '', m, 0, { mimetype: 'audio/mp4' })
 }
-handler.help = ['surah'].map(v => v + ' *surah no*')
+handler.help = ['alquran2 <no surah> <no ayat>']
 handler.tags = ['quran']
-handler.command = /^sura(t|h)$/i
+handler.command = /^(al)?quran2$/i
+
 export default handler
