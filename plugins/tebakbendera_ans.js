@@ -16,12 +16,12 @@ export async function before(m) {
         }
         let json = JSON.parse(JSON.stringify(this.tebakbendera[id][1]))
         // m.reply(JSON.stringify(json, null, '\t'))
-        if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
+        if (m.text.toLowerCase() == json.name.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebakbendera[id][2]
             conn.sendButton(m.chat, `*Benar!*\n+${this.tebakbendera[id][2]} XP`, author, null, buttontebakbendera, m)
             clearTimeout(this.tebakbendera[id][3])
             delete this.tebakbendera[id]
-        } else if (similarity(m.text.toLowerCase(), json.jawaban.toLowerCase().trim()) >= threshold)
+        } else if (similarity(m.text.toLowerCase(), json.name.toLowerCase().trim()) >= threshold)
             m.reply(`*Dikit Lagi!*`)
         else
             conn.sendButton(m.chat, `*Salah!*`, author, null, [
