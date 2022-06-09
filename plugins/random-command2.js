@@ -128,7 +128,7 @@ let res = await fetch(`https://api.lolhuman.xyz/api/jalantikus?apikey=9b817532fa
 }
 
 if (command == 'jaraktempuh') {
-if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 5 2`
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} jakarta makasar`
 let text1 = args[0]
 let text2 = args.slice(1).join(' ')
 let res = await fetch(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=9b817532fadff8fc7cb86862&kota1=${text1}&kota2=${text2}`)
