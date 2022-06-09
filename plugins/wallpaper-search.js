@@ -20,7 +20,7 @@ if (command == 'unsplash') {
      let res = await fetch(`https://api.lolhuman.xyz/api/unsplash?apikey=9b817532fadff8fc7cb86862&query=${text}`)
     let json = await res.json()
     let img = json.result
-    let im = Math.floor(Math.random() * img.length);
+    let im = img.getRandom()
     await conn.sendFile(m.chat, im, "walp.jpg", `Nih kak, Wallpapernya udah terkirim`, m, 0, { thumbnail: Buffer.alloc(0) })
 }
 
@@ -28,7 +28,7 @@ if (command == 'wall3') {
      let res = await fetch(`https://api.lolhuman.xyz/api/wallpaper3?apikey=9b817532fadff8fc7cb86862&query=${text}`)
     let json = await res.json()
     let img = json.result
-    let im = Math.floor(Math.random() * img.length);
+    let im = img.getRandom()
     await conn.sendFile(m.chat, im, "walp.jpg", `Nih kak, Wallpapernya udah terkirim`, m, 0, { thumbnail: Buffer.alloc(0) })
 }
 

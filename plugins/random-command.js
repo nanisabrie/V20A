@@ -233,8 +233,8 @@ let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.result) {
         caption += `
-🤠 *Nama:* ${x.result.title}
-*Link:* ${x.result.link}
+🤠 *Nama:* ${x.title}
+*Link:* ${x.link}
 `}
         return m.reply(caption)
 }
