@@ -1,47 +1,32 @@
-import axios from 'axios'
-import cheerio from 'cheerio'
+import fetch from 'node-fetch'
 
-let handler = async (m, { conn, command, text }) => {
+let handler = async (m, { conn, usedPrefix, command, text }) => {
 
 let urut = text.split`|`
   let nama = urut[0]
   let pasangan = urut[1]
 
-let jsons = await ramalanJodoh(`${nama}`, `${pasangan}`)
-        let caption = `*⎔┉━「 ${command} 」━┉⎔*`
-        for (let x of jsons.result) {
-        caption += `
-*Kecocokan Berdasarkan Nama*
-POSITIF: ${x.positif}
-NEGATIF: ${x.negatif}
-`}
-        return m.reply(caption)
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} gw|ayang`
+
+let f = await fetch(`https://bx-hunter.herokuapp.com/api/primbon/jodoh?nama1=${nama}&nama2=${pasangan}&apikey=FuckBitch`)
+let x = await f.json()
+let caption = `
+*Nama:* ${x.namaKamu} & ${x.namaPasangan}
+*Positif:* ${x.positif}
+*Negatif:* ${x.negatif}
+`
+await conn.sendHydrated(m.chat, caption, wm, x.thumbnail, null, null, null, null, [
+      ['Ceksifat', usedPrefix + 'ceksifat' + nama + ' & ' + pasangan],
+      ['Menu', usedPrefix + 'menu']
+    ], m)
+}
+
 
 }
-handler.help = ['cekjodoh <pasangan>']
+handler.help = ['cekjodoh <gw>|<lo>']
 handler.tags = ['kerang', 'fun']
 handler.command = /^cekjodoh/i
 
 handler.limit = true
 
 export default handler
-
-function ramalanJodoh(nama, pasangan) {
-	return new Promise((resolve, reject) => {
-		axios.get('https://www.primbon.com/kecocokan_nama_pasangan.php?nama1='+nama+'&nama2='+pasangan+'&proses=+Submit%21+').then(res => {
-		const $ = cheerio.load(res.data)
-		const thumb = 'https://www.primbon.com/'+$('#body > img').attr('src')
-		const isi = $('#body').text().split(pasangan)[1].replace('< Hitung Kembali','').split('\n')[0]
-      		const positif = isi.split('Sisi Negatif Anda: ')[0].replace('Sisi Positif Anda: ','')
-      		const negatif = isi.split('Sisi Negatif Anda: ')[1]
-      		const result = {
-      			thumb: thumb,
-      			positif: positif,
-      			negatif: negatif
-      		}
-      		resolve(result)
-		})
-
-	})
-}
-
