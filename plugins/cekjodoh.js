@@ -19,8 +19,6 @@ await conn.sendHydrated(m.chat, caption, wm, x.thumbnail, null, null, null, null
       ['Ceksifat', usedPrefix + 'ceksifat' + nama + ' & ' + pasangan],
       ['Menu', usedPrefix + 'menu']
     ], m)
-}
-
 
 }
 handler.help = ['cekjodoh <gw>|<lo>']
