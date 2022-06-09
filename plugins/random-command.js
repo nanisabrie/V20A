@@ -227,6 +227,18 @@ await conn.sendHydrated(m.chat, caption, wm, x.image, x.shop_location, 'Lokasi',
     ], m)
 }
 
+if (command == 'beasiswa') {
+let f = await fetch(`https://api.lolhuman.xyz/api/indbeasiswa?apikey=9b817532fadff8fc7cb86862`)
+let jsons = await f.json()
+let caption = `*⎔┉━「 ${command} 」━┉⎔*`
+        for (let x of jsons.result) {
+        caption += `
+🤠 *Nama:* ${x.result.title}
+*Link:* ${x.result.link}
+`}
+        return m.reply(caption)
+}
+
 if (command == 'stimker') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} anjing
 
@@ -246,7 +258,7 @@ Pencet di bawah bang ☺️`, author, null, [
 }
 
 }
-handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke']
+handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa']
 handler.tags = ['random']
 
 export default handler
