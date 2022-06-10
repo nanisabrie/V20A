@@ -1,4 +1,5 @@
 function handler(m, { groupMetadata }) {
+
     let toM = a => '@' + a.split('@')[0]
     let ps = groupMetadata.participants.map(v => v.id)
     let a = ps.getRandom()
@@ -19,10 +20,10 @@ await conn.sendButton(m.chat, jwb, wm, null, [
         ['Nyerah', 'menyerah']
     ], m, { mentions: jwb })
     }
+    
 }
-
 handler.tags = ['main', 'fun']
-handler.help = handler.command = ['jodohnya', 'jodohku']
+handler.command = handler.help = ['jodohnya', 'jodohku']
 
 handler.group = true
 
