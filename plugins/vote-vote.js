@@ -16,7 +16,8 @@ let handler = async (m, { conn, groupMetadata, usedPrefix, command }) => {
     }
     
     let [reason, upvote, devote] = conn.vote[id]
-    let votext = `「 *Vote* 」
+    
+await conn.sendButton(m.chat, `「 *Vote* 」
 *Alasan:* ${reason}
 *Upvote*
 _Total: ${upvote.length}_
@@ -25,20 +26,10 @@ ${upvote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join('\n')}
 *Devote*
 _Total: ${devote.length}_
 ${devote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join('\n')}
-    `.trim()
-            let vobut = [
-              {buttonId: '.upvote', buttonText: {displayText: 'upvote'}, type: 1},
-              {buttonId: '.devote', buttonText: {displayText: 'devote'}, type: 1}
-            ]
-
-            let vosec = {
-                text: votext,
-                footer: wm,
-                buttons: vobut,
-                headerType: 1,
-                mentions: votext
-             }
-            conn.sendMessage(m.chat, vosec)
+    `.trim(), author, null, [
+        ['upvote', `${usedPrefix}upvote`],
+        ['devote', `${usedPrefix}devote`]
+    ], m)
 }
 handler.help = ['upvote', 'devote']
 handler.tags = ['vote']
