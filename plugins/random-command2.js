@@ -1,7 +1,6 @@
 import fetch from 'node-fetch'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} query`
 
 if (command == 'ceritahoror') {
 let res = await fetch(`https://api.lolhuman.xyz/api/ceritahoror?apikey=9b817532fadff8fc7cb86862`)
@@ -15,6 +14,8 @@ let res = await fetch(`https://api.lolhuman.xyz/api/ceritahoror?apikey=9b817532f
 }
 
 if (command == 'growiki') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} magplant`
+
 let res = await fetch(`https://api.lolhuman.xyz/api/growiki?apikey=9b817532fadff8fc7cb86862&query=${text}`)
   let sul = await res.json()
   let has = sul.result
@@ -29,6 +30,8 @@ let res = await fetch(`https://api.lolhuman.xyz/api/growiki?apikey=9b817532fadff
 }
 
 if (command == 'growstocks') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} magplant`
+
 let res = await fetch(`https://api.lolhuman.xyz/api/growstocks?apikey=9b817532fadff8fc7cb86862&query=${text}`)
   let sul = await res.json()
   let has = sul.result
@@ -44,6 +47,8 @@ let res = await fetch(`https://api.lolhuman.xyz/api/growstocks?apikey=9b817532fa
 }
 
 if (command == 'gsearch') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} magplant`
+
 let res = await fetch(`https://api.lolhuman.xyz/api/gsearch?apikey=9b817532fadff8fc7cb86862&query=${text}`)
   let sul = await res.json()
   let has = sul.result
@@ -56,6 +61,8 @@ let res = await fetch(`https://api.lolhuman.xyz/api/gsearch?apikey=9b817532fadff
 }
 
 if (command == 'gsmarena') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} oppo`
+
 let res = await fetch(`https://api.lolhuman.xyz/api/gsmarena?apikey=9b817532fadff8fc7cb86862&query=${text}`)
   let sul = await res.json()
   let has = sul.result
@@ -128,7 +135,8 @@ let res = await fetch(`https://api.lolhuman.xyz/api/jalantikus?apikey=9b817532fa
 }
 
 if (command == 'jaraktempuh') {
-if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} jakarta makasar`
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} aceh banten`
+
 let text1 = args[0]
 let text2 = args.slice(1).join(' ')
 let res = await fetch(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=9b817532fadff8fc7cb86862&kota1=${text1}&kota2=${text2}`)
@@ -260,14 +268,13 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 
 if (command == 'dlrandom') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} query`
-let haha = await conn.getFile(`https://api.lolhuman.xyz/api/random/nsfw/${text}?apikey=9b817532fadff8fc7cb86862`)
-conn.sendButton(m.chat, `Random *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)
+
+conn.sendButton(m.chat, `Random *${command}*`, author, `https://api.lolhuman.xyz/api/random/nsfw/${text}?apikey=9b817532fadff8fc7cb86862`, [['🔄 Next 🔄', `/${command}`]], m)
 }
 
 if (command == 'dlrandom2') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} query`
-let haha = await conn.getFile(`https://api.lolhuman.xyz/api/random2/${text}?apikey=9b817532fadff8fc7cb86862`)
-conn.sendButton(m.chat, `Random *${command}*`.trim(), author, haha.data, [['🔄 Next 🔄', `/${command}`]], m)
+conn.sendButton(m.chat, `Random *${command}*`, author, `https://api.lolhuman.xyz/api/random2/${text}?apikey=9b817532fadff8fc7cb86862`, [['🔄 Next 🔄', `/${command}`]], m)
 }
 
 
