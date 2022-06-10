@@ -7,7 +7,7 @@ let handler = async (m, { conn, text }) => {
           }})
   
   }
-handler.customPrefix = /(bilek|laik|banh|emot|nihh|tytyd|anjir|dek)/i
+handler.customPrefix = /(bilek|laik|banh|nihh|tytyd|anjir|dek)/i
 handler.command = new RegExp
   
 handler.mods = false
