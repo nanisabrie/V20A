@@ -7,7 +7,7 @@ let ps = groupMetadata.participants.map(v => v.id)
     let b
     do b = ps.getRandom()
     while (b === a)
-    m.reply(`Ciee... ${toM(a)} ❤️ ${toM(b)}`, null, {
+    m.reply(`*Ciee...* ${toM(a)} ❤️ ${toM(b)}`, null, {
         mentions: [a, b]
     })
     }
@@ -17,7 +17,7 @@ let ps = groupMetadata.participants.map(v => v.id)
   	var number = text
   }
 
-  if(!text && !m.quoted) return conn.reply(m.chat, `Masukan nomor, tag target atau balas pesan target`, m)
+  if(!text && !m.quoted) return conn.reply(m.chat, `Atau Masukan nomor, tag target atau balas pesan target`, m)
   
   if(isNaN(number)) return conn.reply(m.chat, `_*Nomor tidak valid.*_`, m)
   if(number.length > 15) return conn.reply(m.chat, `*_Format Tidak Valid.*_`, m)
