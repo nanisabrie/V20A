@@ -1,6 +1,16 @@
 import { areJidsSameUser } from '@adiwajshing/baileys'
-
+let toM = a => '@' + a.split('@')[0]
 let handler = async (m, { conn, usedPrefix, text, participants, groupMetadata}) => {
+if(!text) {
+let ps = groupMetadata.participants.map(v => v.id)
+    let a = ps.getRandom()
+    let b
+    do b = ps.getRandom()
+    while (b === a)
+    m.reply(`Ciee... ${toM(a)} ❤️ ${toM(b)}`, null, {
+        mentions: [a, b]
+    })
+    }
 	if(isNaN(text)) {
   	var number = text.split`@`[1]
   } else if(!isNaN(text)) {
@@ -50,7 +60,7 @@ let handler = async (m, { conn, usedPrefix, text, participants, groupMetadata}) 
 }
 handler.help = ['tembak *@tag*']
 handler.tags = ['jadian']
-handler.command = /^(tembak)$/i
+handler.command = /^(tembak|jadian)$/i
 handler.group = true
 
 export default handler
