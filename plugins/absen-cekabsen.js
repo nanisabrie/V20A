@@ -14,17 +14,26 @@ let handler = async (m, { conn, groupMetadata, usedPrefix }) => {
     })
     let absen = conn.absen[id][1]
     let list = absen.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join('\n')
-    
-await conn.sendButton(m.chat, `*Tanggal:* ${date}
+    let abtext = `*Tanggal:* ${date}
 ${conn.absen[id][2]}
 
 *「 Sudah absen 」*
 *Total:* ${absen.length}
 ${list}
-`, author, null, [
-        ['absen', `${usedPrefix}absen`],
-        ['cekabsen', `${usedPrefix}cekabsen`]
-    ], m)
+`
+            let abbut = [
+              {buttonId: '.absen', buttonText: {displayText: 'absen'}, type: 1},
+              {buttonId: '.cekabsen', buttonText: {displayText: 'cekabsen'}, type: 1}
+            ]
+
+            let absec = {
+                text: abtext,
+                footer: wm,
+                buttons: abbut,
+                headerType: 1,
+                mentions: abtext
+             }
+            conn.sendMessage(m.chat, absec)
 }
 handler.help = ['cekabsen']
 handler.tags = ['absen']

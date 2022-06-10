@@ -8,8 +8,7 @@ let handler = async (m, { conn, groupMetadata, usedPrefix }) => {
 ], m)
 
     let [reason, upvote, devote] = conn.vote[id]
-    
-await conn.sendButton(m.chat, `「 *Vote* 」
+    let votext = `「 *Vote* 」
 *Alasan:* ${reason}
 *Upvote*
 _Total: ${upvote.length}_
@@ -19,14 +18,25 @@ ${upvote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join('\n')}
 _Total: ${devote.length}_
 ${devote.map((v, i) => `• ${i + 1}.  @${v.split`@`[0]}`).join('\n')}
 wm
-    `.trim(), author, null, [
-        ['upvote', `${usedPrefix}upvote`],
-        ['devote', `${usedPrefix}devote`],
-        ['hapusvote', `${usedPrefix}-vote`]
-    ], m)
+    `.trim()
+            let vobut = [
+              {buttonId: '.upvote', buttonText: {displayText: 'upvote'}, type: 1},
+              {buttonId: '.devote', buttonText: {displayText: 'devote'}, type: 1},
+              {buttonId: '.hapusvote', buttonText: {displayText: 'hapusvote'}, type: 1}
+            ]
+
+            let vosec = {
+                text: votext,
+                footer: wm,
+                buttons: vobut,
+                headerType: 1,
+                mentions: votext
+             }
+            conn.sendMessage(m.chat, vosec)
 }
 handler.help = ['cekvote']
 handler.tags = ['vote']
 handler.command = /^cekvote$/i
 
 export default handler
+
