@@ -97,7 +97,6 @@ let json = await fetch(`https://api.lolhuman.xyz/api/jadwalbola?apikey=9b817532f
 }
 
 if (command == 'jadwaltv') {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} antv`
 let json = await fetch(`https://api.lolhuman.xyz/api/jadwaltv/now?apikey=9b817532fadff8fc7cb86862`)
         let jsons = await json.json()
         let caption = `*⎔┉━「 ${command} 」━┉⎔*`
@@ -122,28 +121,28 @@ let json = await fetch(`https://api.lolhuman.xyz/api/jadwaltv/now?apikey=9b81753
 }
 
 if (command == 'jalantikus') {
-let res = await fetch(`https://api.lolhuman.xyz/api/jalantikus?apikey=9b817532fadff8fc7cb86862`)
-  let sul = await res.json()
-  let has = sul.result
-  await conn.sendButton(m.chat, `*Name:* ${has.title}
+let json = await fetch(`https://api.lolhuman.xyz/api/jalantikus?apikey=9b817532fadff8fc7cb86862`)
+let jsons = await json.json()
+        let caption = `*⎔┉━「 ${command} 」━┉⎔*`
+        for (let has of jsons.result) {
+        caption += `
+  *Name:* ${has.title}
   *time:* ${has.time}
   *link:* ${has.link}
   *category:* ${has.category}
-`, author, null, [
-                ['Next', `${usedPrefix + command}`]
-            ], m)
+  `}
+        return m.reply(caption)
 }
 
 if (command == 'jaraktempuh') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} aceh banten`
 
-let text1 = args[0]
-let text2 = args.slice(1).join(' ')
-let res = await fetch(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=9b817532fadff8fc7cb86862&kota1=${text1}&kota2=${text2}`)
-  let qt = await res.json()
-  let x = qt.result
-  await conn.sendButton(m.chat, `
-*Dari:* ${x.from.name}
+let json = await fetch(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=9b817532fadff8fc7cb86862&kota1=${args[0]}&kota2=${args[1]}`)
+let jsons = await json.json()
+        let caption = `*⎔┉━「 ${command} 」━┉⎔*`
+        for (let has of jsons.result) {
+        caption += `
+  *Dari:* ${x.from.name}
 *Ke:* ${x.to.name}
 
 *Jarak:* ${x.jarak}
@@ -152,9 +151,8 @@ let res = await fetch(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=9b817532f
 *mobil:* ${x.mobil}
 *motor:* ${x.motor}
 *jalan kaki:* ${x.jalan_kaki}
-`, author, null, [
-                ['Menu', `${usedPrefix}menu`]
-            ], m)
+  `}
+        return m.reply(caption)
 }
 
 if (command == 'random') {
