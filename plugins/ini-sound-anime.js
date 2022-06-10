@@ -76,5 +76,6 @@ ptt: true
 
 }
 handler.customPrefix = ['ara', 'ganbare', 'konichiwa', 'nani', 'rikka', 'ultra', 'ahh', 'yemete', 'yuno']
+handler.command = new RegExp
 
 export default handler
