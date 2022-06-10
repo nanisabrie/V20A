@@ -266,20 +266,8 @@ const listMessage = {
 conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: wm,jpegThumbnail: Buffer.alloc(0)}}}})
 }
 
-if (command == 'dlrandom') {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} query`
-
-conn.sendButton(m.chat, `Random *${command}*`, author, `https://api.lolhuman.xyz/api/random/nsfw/${text}?apikey=9b817532fadff8fc7cb86862`, [['🔄 Next 🔄', `/${command}`]], m)
 }
-
-if (command == 'dlrandom2') {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} query`
-conn.sendButton(m.chat, `Random *${command}*`, author, `https://api.lolhuman.xyz/api/random2/${text}?apikey=9b817532fadff8fc7cb86862`, [['🔄 Next 🔄', `/${command}`]], m)
-}
-
-
-}
-handler.command = handler.help = ['ceritahoror', 'growiki', 'growstocks', 'gsearch', 'gsmarena', 'jadwalbola', 'jadwaltv', 'jalantikus', 'jaraktempuh', 'random', 'random2']
+handler.command = handler.help = ['ceritahoror', 'growiki', 'growstocks', 'gsearch', 'gsmarena', 'jadwalbola', 'jadwaltv', 'jalantikus', 'jaraktempuh']
 handler.tags = ['random']
 
 export default handler
