@@ -180,7 +180,7 @@ const sections = [
 ]
 
 const listMessage = {
-  text: `⚡ Silakan pilih tema di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah nsfw lagi`,
+  text: `⚡ Silakan pilih tema di tombol di bawah...\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah nsfw lagi`,
   footer: global.wm,
   title: `⎔───「 ${command} 」───⎔`,
   buttonText: `☂️ Random Disini ☂️`,
@@ -249,7 +249,7 @@ const sections = [
 ]
 
 const listMessage = {
-  text: `⚡ Silakan pilih tema di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah nsfw lagi`,
+  text: `⚡ Silakan pilih tema di tombol di bawah...\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah nsfw lagi`,
   footer: global.wm,
   title: `⎔───「 ${command} 」───⎔`,
   buttonText: `☂️ Random Disini ☂️`,
