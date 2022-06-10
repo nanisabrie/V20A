@@ -140,7 +140,7 @@ if (!text) throw `Contoh penggunaan ${usedPrefix}${command} aceh banten`
 let json = await fetch(`https://api.lolhuman.xyz/api/jaraktempuh?apikey=9b817532fadff8fc7cb86862&kota1=${args[0]}&kota2=${args[1]}`)
 let jsons = await json.json()
         let caption = `*⎔┉━「 ${command} 」━┉⎔*`
-        for (let has of jsons.result) {
+        for (let x of jsons.result) {
         caption += `
   *Dari:* ${x.from.name}
 *Ke:* ${x.to.name}
@@ -265,7 +265,7 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 }
 
 }
-handler.command = handler.help = ['ceritahoror', 'growiki', 'growstocks', 'gsearch', 'gsmarena', 'jadwalbola', 'jadwaltv', 'jalantikus', 'jaraktempuh']
+handler.command = handler.help = ['ceritahoror', 'growiki', 'growstocks', 'gsearch', 'gsmarena', 'jadwalbola', 'jadwaltv', 'jalantikus', 'jaraktempuh', 'random', 'random2']
 handler.tags = ['random']
 
 export default handler
