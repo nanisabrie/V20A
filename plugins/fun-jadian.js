@@ -5,14 +5,24 @@ function handler(m, { groupMetadata }) {
     let b
     do b = ps.getRandom()
     while (b === a)
-    let jwb = `Ciee... ${toM(a)} ❤️ ${toM(b)}`
+    
+if (command == 'jodohnya') {
+    let jwb = `Ciee... ${toM(a)} ❤️ ${toM(b)}`.trim()
 await conn.sendButton(m.chat, jwb, wm, null, [
         ['Nyerah', 'menyerah']
-    ], m, { mentions: [a, b] })
+    ], m, { mentions: jwb })
+    }
+    
+if (command == 'jodohku') {
+    let jwb = `Ciee... ${m.sender.split('@')[0]} ❤️ ${toM(b)}`.trim()
+await conn.sendButton(m.chat, jwb, wm, null, [
+        ['Nyerah', 'menyerah']
+    ], m, { mentions: jwb })
+    }
 }
-handler.help = ['jodohku']
+
 handler.tags = ['main', 'fun']
-handler.command = ['jodohku']
+handler.help = handler.command = ['jodohnya', 'jodohku']
 
 handler.group = true
 
