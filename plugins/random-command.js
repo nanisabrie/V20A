@@ -275,9 +275,68 @@ await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_lin
     await conn.sendFile(m.chat, x.result.apk_link, x.result.apk_link, '', m)
 }
 
+if (command == 'lacakip') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
+try {
+let f = await fetch(`https://sys.airtel.lv/ip2country/${text}/?full=true`)
+let jsons = await f.json()
+let caption = `*⎔┉━「 ${command} 」━┉⎔*`
+        for (let x of jsons) {
+        caption += `
+🤠 *Country:* ${x.country}
+*City:* ${x.city}
+*Asn:* ${x.asn}
+*Lat:* ${x.lat}
+*Lon:* ${x.lon}
+`}
+        return m.reply(caption)
+        } else if (e) {
+        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${text}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
+let jsons = await f.json()
+let caption = `*⎔┉━「 ${command} 」━┉⎔*`
+        for (let x of jsons.data) {
+        caption += `
+*Timezone:* ${x.timezone.current_time}
+*Organization:* ${x.connection.organization}
+*Latitude:* ${x.location.latitude}
+*Longitude:* ${x.location.longitude}
+
+*Country:* ${x.country.alpha3}
+*Emoji:* ${x.emoji}
+`}
+        return m.reply(caption)
+        }
+}
+
+if (command == 'icons') {
+if (!text) throw `Gunakan contoh ${usedPrefix + command} Home`
+	const sections = [
+    {
+	title: "Theme",
+	rows: [
+	{title: "win8", rowId: usedPrefix + 'geticons win8 ' + text},
+{title: "win10", rowId: usedPrefix + 'geticons win10 ' + text},
+{title: "ios7", rowId: usedPrefix + 'geticons ios7 ' + text},
+{title: "android", rowId: usedPrefix + 'geticons android ' + text},
+{title: "androidL", rowId: usedPrefix + 'geticons androidL ' + text},
+{title: "color", rowId: usedPrefix + 'geticons color ' + text},
+{title: "office", rowId: usedPrefix + 'geticons office ' + text}
+	]
+    }
+]
+
+const listMessage = {
+  text: `⚡ Silakan pilih tema di tombol di bawah...\n*Teks yang anda kirim:* ${text}\n\nKetik ulang *${usedPrefix + command}* teks anda untuk mengubah teks lagi`,
+  footer: global.wm,
+  title: `⎔───「 ${command} 」───⎔`,
+  buttonText: `☂️ Tema Disini ☂️`,
+  sections
+}
+conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: wm,jpegThumbnail: Buffer.alloc(0)}}}})
+}
 
 }
-handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown']
+handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'lacakip', 'icons']
 handler.tags = ['random']
 
 export default handler
