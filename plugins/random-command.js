@@ -276,8 +276,8 @@ await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_lin
 }
 
 if (command == 'lacakip') {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-let f = await fetch(`https://sys.airtel.lv/ip2country/${text}/?full=true`)
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
+let f = await fetch(`https://sys.airtel.lv/ip2country/${args[0]}/?full=true`)
 let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons) {
@@ -292,19 +292,20 @@ return m.reply(caption)
 }
 
 if (command == 'lacakip2') {
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${text}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
+        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${args[0]}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
 let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.data) {
         caption += `
 *Timezone:* ${x.timezone.current_time}
+*Id:* ${x.timezone.id}
 *Organization:* ${x.connection.organization}
 *Latitude:* ${x.location.latitude}
 *Longitude:* ${x.location.longitude}
 
-*Country:* ${x.country.alpha3}
-*Emoji:* ${x.emoji}
+*Country:* ${x.location.country.alpha3}
+*Emoji:* ${x.location.country.emoji}
 `}
         return m.reply(caption)
 }
@@ -315,13 +316,13 @@ if (!text) throw `Gunakan contoh ${usedPrefix + command} Home`
     {
 	title: "Theme",
 	rows: [
-	{title: "win8", rowId: usedPrefix + 'geticons win8 ' + text},
-{title: "win10", rowId: usedPrefix + 'geticons win10 ' + text},
-{title: "ios7", rowId: usedPrefix + 'geticons ios7 ' + text},
-{title: "android", rowId: usedPrefix + 'geticons android ' + text},
-{title: "androidL", rowId: usedPrefix + 'geticons androidL ' + text},
-{title: "color", rowId: usedPrefix + 'geticons color ' + text},
-{title: "office", rowId: usedPrefix + 'geticons office ' + text}
+	{title: "win8", rowId: usedPrefix + 'geticons win8|' + text},
+{title: "win10", rowId: usedPrefix + 'geticons win10|' + text},
+{title: "ios7", rowId: usedPrefix + 'geticons ios7|' + text},
+{title: "android", rowId: usedPrefix + 'geticons android|' + text},
+{title: "androidL", rowId: usedPrefix + 'geticons androidL|' + text},
+{title: "color", rowId: usedPrefix + 'geticons color|' + text},
+{title: "office", rowId: usedPrefix + 'geticons office|' + text}
 	]
     }
 ]
