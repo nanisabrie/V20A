@@ -3,8 +3,7 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 
 if (command == 'quotegarden') {
-try {
-if (!text) return 
+if (!text) {
 let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes`)
   let sul = await res.json()
   let xx = sul.data
@@ -19,7 +18,7 @@ let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes`)
                 ['Again', `${usedPrefix + command} ${x.currentPage}`],
                 ['Translate', `${usedPrefix}tr id ${x.quoteText}`]
             ], m)
-    } catch {
+            } else if (text) {
     let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes?page=${text}`)
   let sul = await res.json()
   let xx = sul.data
@@ -34,7 +33,7 @@ let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes`)
                 ['Again', `${usedPrefix + command} ${x.currentPage}`],
                 ['Translate', `${usedPrefix}tr id ${x.quoteText}`]
             ], m)
-         }
+        }
 }
 
 if (command == 'quotable') {

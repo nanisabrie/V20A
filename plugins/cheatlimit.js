@@ -4,12 +4,12 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
     else who = m.sender
     
     let hore = `${pickRandom(['Mancing mania mangtaf', 'Killing spriii', 'Owalahh dapet segini', 'Lain kali gwejh berusaha', 'Okwew..', 'Thanks', 'Dihh..', 'Xixixii..', 'Yaelah dapet segini', 'Hongreewww..', 'Baakaaaa', 'Ara..Ara..'])}`
-    let angka1 = Math.floor(Math.random() * 10000)
-    let angka2 = Math.floor(Math.random() * 1000)
+    let angka1 = Math.floor(Math.random() * 1000)
+    let angka2 = Math.floor(Math.random() * 10000)
     let angka3 = Math.floor(Math.random() * 100000)
     
-    global.db.data.users[who].exp += angka1
-    global.db.data.users[who].limit += angka2
+    global.db.data.users[who].limit += angka1
+    global.db.data.users[who].exp += angka2
     global.db.data.users[who].money += angka3
     
     conn.sendButton(m.chat, `*${hore}* ~ :l

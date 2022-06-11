@@ -4,7 +4,7 @@ let handler = async (m, { conn, groupMetadata, usedPrefix }) => {
     conn.absen = conn.absen ? conn.absen : {}
     if (!(id in conn.absen)) {
         await conn.sendButton(m.chat, `Tidak ada absen berlangsung!`, author, null, [
-        ['mulai', `${usedPrefix}mulaiabsen`]
+        ['Mulaiabsen', `${usedPrefix}mulaiabsen`]
     ], m)
         throw false
     }
