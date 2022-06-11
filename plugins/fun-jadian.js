@@ -8,17 +8,25 @@ function handler(m, { groupMetadata }) {
     while (b === a)
     
 if (command == 'jodohnya') {
-    let jwb = `Ciee... ${toM(a)} ❤️ ${toM(b)}`.trim()
-await conn.sendButton(m.chat, jwb, wm, null, [
-        ['Nyerah', 'menyerah']
-    ], m, { mentions: jwb })
+let ps = groupMetadata.participants.map(v => v.id)
+    let a = ps.getRandom()
+    let b
+    do b = ps.getRandom()
+    while (b === a)
+    m.reply(`*Ciee...* ${toM(a)} ❤️ ${toM(b)}`, null, {
+        mentions: [a, b]
+    })
     }
     
 if (command == 'jodohku') {
-    let jwb = `Ciee... ${m.sender.split('@')[0]} ❤️ ${toM(b)}`.trim()
-await conn.sendButton(m.chat, jwb, wm, null, [
-        ['Nyerah', 'menyerah']
-    ], m, { mentions: jwb })
+let ps = groupMetadata.participants.map(v => v.id)
+    let a = ps.getRandom()
+    let b
+    do b = ps.getRandom()
+    while (b === a)
+    m.reply(`*Ciee...* ${m.sender.split('@')[0]} ❤️ ${toM(b)}`, null, {
+        mentions: [a, b]
+    })
     }
     
 }
