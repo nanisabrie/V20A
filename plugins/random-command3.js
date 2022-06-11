@@ -5,7 +5,7 @@ let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command })
 
 if (command == 'robohash') {
 if (!text) throw `Gunakan contoh ${usedPrefix + command} Robot`
-    let stiker = await sticker(null, global.API(`https://robohash.org/${teks}`), global.packname, global.author)
+    let stiker = await sticker(null, global.API(`https://robohash.org/${text}`), global.packname, global.author)
     if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
     throw stiker.toString()
 }

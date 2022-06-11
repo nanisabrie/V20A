@@ -3,7 +3,8 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 
 if (command == 'quotegarden') {
-if (!text) {
+try {
+if (!text) return 
 let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes`)
   let sul = await res.json()
   let xx = sul.data
@@ -16,10 +17,9 @@ let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes`)
   *Id:* ${x._id}`, wm, null, [
                 ['Next', `${usedPrefix + command} ${x.nextPage}`],
                 ['Again', `${usedPrefix + command} ${x.currentPage}`],
-                ['Translate', `${usedPrefix}transate id ${x.quoteText}`]
+                ['Translate', `${usedPrefix}tr id ${x.quoteText}`]
             ], m)
-    }
-    
+    } catch {
     let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes?page=${text}`)
   let sul = await res.json()
   let xx = sul.data
@@ -32,8 +32,9 @@ let res = await fetch(`https://quote-garden.herokuapp.com/api/v3/quotes`)
   *Id:* ${x._id}`, wm, null, [
                 ['Next', `${usedPrefix + command} ${x.nextPage}`],
                 ['Again', `${usedPrefix + command} ${x.currentPage}`],
-                ['Translate', `${usedPrefix}transate id ${x.quoteText}`]
+                ['Translate', `${usedPrefix}tr id ${x.quoteText}`]
             ], m)
+         }
 }
 
 if (command == 'quotable') {
@@ -47,7 +48,7 @@ let res = await fetch(`https://api.quotable.io/random`)
   *Date Modif:* ${x.dateModified}
   *Id:* ${x._id}`, wm, null, [
                 ['Next', `${usedPrefix + command}`],
-                ['Translate', `${usedPrefix}transate id ${x.content}`]
+                ['Translate', `${usedPrefix}tr id ${x.content}`]
             ], m)
 }
 
@@ -59,7 +60,7 @@ let res = await fetch(`https://api.goprogram.ai/inspiration`)
   
   *Author:* ${x.author}`, wm, null, [
                 ['Next', `${usedPrefix + command}`],
-                ['Translate', `${usedPrefix}transate id ${x.quote}`]
+                ['Translate', `${usedPrefix}tr id ${x.quote}`]
             ], m)
 }
 
