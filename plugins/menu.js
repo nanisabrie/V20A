@@ -3,38 +3,38 @@ import { join } from 'path'
 import { xpRange } from '../lib/levelling.js'
 let tags = {
   'main': 'Main',
-  'game': 'Game',
   'rpg': 'RolePlay Games',
   'xp': 'Exp & Limit',
   'jadian': 'Jadian',
   'sticker': 'Sticker',
   'edukasi': 'Edukasi',
-  'Baileys': 'Baileys',
+  'quran': 'Al Quran',
+  'tools': 'Tools',
   'kerang': 'Kerang Ajaib',
+  'primbon': 'Primbon',
+  'fun': 'Fun',
+  'game': 'Game',
   'quotes': 'Quotes',
   'audio': 'Audio',
   'maker': 'Maker',
-  'admin': 'Admin',
-  'group': 'Group',
-  'premium': 'Premium',
-  'internet': 'Internet',
-  'anonymous': 'Anonymous Chat',
-  'nulis': 'MagerNulis & Logo',
   'downloader': 'Downloader',
-  'tools': 'Tools',
-  'fun': 'Fun',
+  'internet': 'Internet',
   'random': 'Random',
   'nsfw': 'Nsfw',
-  'primbon': 'Primbon',
+  'nulis': 'MagerNulis & Logo',
+  'anonymous': 'Anonymous Chat',
   'database': 'Database',
+  'admin': 'Admin',
+  'group': 'Group',
   'vote': 'Voting',
   'absen': 'Absen',
-  'quran': 'Al Quran',
-  'jadibot': 'Jadi Bot',
-  'owner': 'Owner',
-  'host': 'Host',
+  'premium': 'Premium',
   'advanced': 'Advanced',
   'info': 'Info',
+  'owner': 'Owner',
+  'jadibot': 'Jadi Bot',
+  'host': 'Host',
+  'Baileys': 'Baileys',
   '': 'No Category',
 }
 let emot = `${pickRandom(['⎔', '✦', '⭑', 'ᯬ', '⭔', '◉', '⬟', '▢', '᭻', '»', '〆', '々', '⛥', '✗', '⛊', '⚜', '⚝', '⚚', '♪'])}`
@@ -161,9 +161,10 @@ let handler = async (m, { conn, usedPrefix: _p, __dirname }) => {
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
     const pp = await conn.profilePictureUrl(conn.user.jid).catch(_ => './src/avatar_contact.png')
-    conn.sendHydrated2(m.chat, text.trim(), author, pp, `${webs}`, 'Website',`${gcwangsaf}`, 'Group WhatsApp', [
+    conn.sendHydrated2(m.chat, text.trim(), author, pp, webs, 'Website', gcwangsaf, 'Group WhatsApp', [
       ['Donate', '/donasi'],
-      ['Owner', '/owner']
+      ['Owner', '/owner'],
+      ['Test', '/ping']
     ], m, {quoted:{key : {participant : '0@s.whatsapp.net'},message: {documentMessage: {title: wm,jpegThumbnail: Buffer.alloc(0)}}}})
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
