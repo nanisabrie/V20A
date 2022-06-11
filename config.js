@@ -2,14 +2,16 @@ import { watchFile, unwatchFile } from 'fs'
 import chalk from 'chalk'
 import { fileURLToPath } from 'url'
 import fs from 'fs'
+import moment from 'moment-timezone'
 
 /**Owner number**/
 global.owner = [
-  ['6283190403329'],
-  ['6281313312123'],
-  ['62895605887712'],
-  ['6282328303332'],
-  ['62887435373103'],
+  ['6282195322106', '️Owner1 Hinata-Md', true],
+  ['6282195322106', '️Owner2 Hinata-Md', true],
+  ['6282195322106', '️Owner3 Hinata-Md', true],
+  ['6282195322106', '️Owner4 Hinata-Md', true],
+  ['6282195322106', '️Owner5 Hinata-Md', true],
+  ['6282195322106', '️Owner6 Hinata-Md', true],
   ['6282195322106', '️Owner Hinata-Md', true]
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
