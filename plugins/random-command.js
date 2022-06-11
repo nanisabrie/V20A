@@ -277,7 +277,7 @@ await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_lin
 
 if (command == 'lacakip') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-let f = await fetch(`https://sys.airtel.lv/ip2country/${args[0]}/?full=true`)
+let f = await fetch(`https://sys.airtel.lv/ip2country/${encodeURI(args[0])}/?full=true`)
 let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons) {
@@ -293,7 +293,7 @@ return m.reply(caption)
 
 if (command == 'lacakip2') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${args[0]}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
+        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${encodeURI(args[0])}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
 let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
         for (let x of jsons.data) {
