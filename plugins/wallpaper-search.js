@@ -48,7 +48,7 @@ if (command == 'wall') {
 
 
   }
-handler.command = handler.help = ['wall', 'wall2', 'wall3', 'unplash', 'walls']
+handler.command = handler.help = ['wall', 'wall2', 'wall3', 'unsplash', 'walls']
 handler.tags = ['Wallpaper']
 
 export default handler
