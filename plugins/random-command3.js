@@ -6,7 +6,11 @@ if (command == 'mentahan') {
 let res = await fetch(`https://api.imgflip.com/get_memes`)
   let sul = await res.json()
   let x = sul.data
-  await conn.sendButton(m.chat, `*Name:*\n${x.memes.name}\n*Id:*\n${x.memes.id}*Box:*\n${x.memes.box_count}*Height:*\n${x.memes.height}\n*Width:*\n${x.memes.width}`.trim(), author, x.memes.url, [
+  await conn.sendButton(m.chat, `*Name:* ${x.memes.name}
+  *Id:* ${x.memes.id}
+  *Box:* ${x.memes.box_count}
+  *Height:* ${x.memes.height}
+  *Width:* ${x.memes.width}`, author, x.memes.url, [
                 ['Next', `${usedPrefix + command}`]
             ], m)
 }
