@@ -10,8 +10,8 @@ let urut = text.split`|`
     
 let res = await fetch(`https://api.icons8.com/api/iconsets/v3/search?term=${text2}&platform=${text1}`)
 let x = await res.json()
-let o = x.result.search.png
-let p = `${pickRandom([o])}`
+let o = x.result.search
+let p = `${pickRandom([o.png])}`
 
 let stiker = await sticker(null, global.API(p.link), global.packname, global.author)
     if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
