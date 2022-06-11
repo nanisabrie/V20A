@@ -259,10 +259,10 @@ Pencet di bawah bang ☺️`, author, null, [
 
 if (command == 'apkdown') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} com.whatsapp`
+
 let f = await fetch(`https://api.lolhuman.xyz/api/apkdownloader?apikey=9b817532fadff8fc7cb86862&package=${text}`)
 let x = await f.json()
-let caption = `
-*Apk Name:* ${x.result.apk_name}
+let caption = `*Apk Name:* ${x.result.apk_name}
 *Version:* ${x.result.apk_version}
 *Author:* ${x.result.apk_author}
 `
@@ -275,37 +275,103 @@ await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_lin
     await conn.sendFile(m.chat, x.result.apk_link, x.result.apk_link, '', m)
 }
 
-if (command == 'lacakip') {
-if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-let f = await fetch(`https://sys.airtel.lv/ip2country/${args[0]}/?full=true`)
+if (command == 'proxysite') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
+
+let f = await fetch(`https://api.lolhuman.xyz/api/proxysite?apikey=9b817532fadff8fc7cb86862&url=${text}`)
 let x = await f.json()
-let caption = `
-🤠 *Country:* ${x.country}
-*City:* ${x.city}
-*Asn:* ${x.asn}
-*Lat:* ${x.lat}
-*Lon:* ${x.lon}
-`
+let caption = `🤠 *Country:* ${x.result}`
 await conn.sendButton(m.chat, caption, author, null, [
                 ['Next', `${usedPrefix}${command} ${text}`]
             ], m)
 }
 
-if (command == 'lacakip2') {
-if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${args[0]}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
-let jsons = await f.json()
-let x = jsons.data
-let caption = `
-*Timezone:* ${x.timezone.current_time}
-*Id:* ${x.timezone.id}
-*Organization:* ${x.connection.organization}
-*Latitude:* ${x.location.latitude}
-*Longitude:* ${x.location.longitude}
+if (command == 'mirrorcreator') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://www.mirrored.to/files/EB7BOJU3/[NekoPoi]_Isekai_Harem_Monogatari_-_04_[720P][nekopoi.care].mp4_links`
 
-*Country:* ${x.location.country.alpha3}
-*Emoji:* ${x.location.country.emoji}
+        let f = await fetch(`https://api.lolhuman.xyz/api/mirrorcreator?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*zippyshare:* ${x.zippyshare}
+*gofileio:* ${x.gofileio}
+*userscloud:* ${x.userscloud}
+*racaty:* ${x.racaty}
+*googledrive:* ${x.googledrive}
+*dropapk:* ${x.dropapk}
+*videobinco:* ${x.videobinco}
 `
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
+}
+
+if (command == 'ouo') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://ouo.io/8BgQ1w`
+
+        let f = await fetch(`https://api.lolhuman.xyz/api/ouo?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*Result:* ${x}`
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
+}
+
+if (command == 'ouoshort') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
+
+        let f = await fetch(`https://api.lolhuman.xyz/api/ouoshortlink?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*Result:* ${x}`
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
+}
+
+if (command == 'shortlink') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
+
+        let f = await fetch(`https://api.lolhuman.xyz/api/shortlink?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*Result:* ${x}`
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
+}
+
+if (command == 'shortlink2') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
+
+        let f = await fetch(`https://api.lolhuman.xyz/api/shortlink2?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*Result:* ${x}`
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
+}
+
+if (command == 'shortlink3') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
+
+        let f = await fetch(`https://api.lolhuman.xyz/api/shortlink3?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*Result:* ${x}`
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
+}
+
+if (command == 'shortlink4') {
+if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} https://google.com`
+
+        let f = await fetch(`https://api.lolhuman.xyz/api/shortlink4?apikey=9b817532fadff8fc7cb86862&url=${text}`)
+let jsons = await f.json()
+let x = jsons.result
+let caption = `*Result:* ${x}`
         await conn.sendButton(m.chat, caption, author, null, [
                 ['Next', `${usedPrefix}${command} ${text}`]
             ], m)
@@ -313,6 +379,7 @@ let caption = `
 
 if (command == 'icons') {
 if (!text) throw `Gunakan contoh ${usedPrefix + command} Home`
+
 	const sections = [
     {
 	title: "Theme",
@@ -339,7 +406,7 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 }
 
 }
-handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'lacakip', 'lacakip2', 'icons']
+handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'proxysite', 'mirrorcreator', 'ouo', 'ouoshort', 'shortlink', 'shortlink2', 'shortlink3', 'shortlink4', 'icons']
 handler.tags = ['random']
 
 export default handler
