@@ -277,7 +277,6 @@ await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_lin
 
 if (command == 'lacakip') {
 if (!text) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-try {
 let f = await fetch(`https://sys.airtel.lv/ip2country/${text}/?full=true`)
 let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
@@ -289,8 +288,11 @@ let caption = `*⎔┉━「 ${command} 」━┉⎔*`
 *Lat:* ${x.lat}
 *Lon:* ${x.lon}
 `}
-        return m.reply(caption)
-        } else if (e) {
+return m.reply(caption)
+}
+
+if (command == 'lacakip2') {
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
         let f = await fetch(`https://api.ipbase.com/v2/info?ip=${text}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
 let jsons = await f.json()
 let caption = `*⎔┉━「 ${command} 」━┉⎔*`
@@ -305,7 +307,6 @@ let caption = `*⎔┉━「 ${command} 」━┉⎔*`
 *Emoji:* ${x.emoji}
 `}
         return m.reply(caption)
-        }
 }
 
 if (command == 'icons') {
@@ -336,7 +337,7 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 }
 
 }
-handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'lacakip', 'icons']
+handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'lacakip', 'lacakip2', 'icons']
 handler.tags = ['random']
 
 export default handler
