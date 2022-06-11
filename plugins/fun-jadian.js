@@ -20,11 +20,12 @@ let ps = groupMetadata.participants.map(v => v.id)
     
 if (command == 'jodohku') {
 let ps = groupMetadata.participants.map(v => v.id)
+let name = await conn.getName(m.sender)
     let a = ps.getRandom()
     let b
     do b = ps.getRandom()
     while (b === a)
-    m.reply(`*Ciee...* ${m.sender.split('@')[0]} ❤️ ${toM(b)}`, null, {
+    m.reply(`*Ciee...* ${name.split("@")[0]} ❤️ ${toM(b)}`, null, {
         mentions: [a, b]
     })
     }

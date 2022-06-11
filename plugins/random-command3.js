@@ -5,12 +5,13 @@ let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command })
 if (command == 'mentahan') {
 let res = await fetch(`https://api.imgflip.com/get_memes`)
   let sul = await res.json()
-  let x = sul.data
-  await conn.sendButton(m.chat, `*Name:* ${x.memes.name}
-  *Id:* ${x.memes.id}
-  *Box:* ${x.memes.box_count}
-  *Height:* ${x.memes.height}
-  *Width:* ${x.memes.width}`, author, x.memes.url, [
+  let xx = sul.data.memes
+  let x = xx.getRandom()
+  await conn.sendButton(m.chat, `*Name:* ${x.name}
+  *Id:* ${x.id}
+  *Box:* ${x.box_count}
+  *Height:* ${x.height}
+  *Width:* ${x.width}`, author, x.url, [
                 ['Next', `${usedPrefix + command}`]
             ], m)
 }
