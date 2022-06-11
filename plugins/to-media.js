@@ -9,96 +9,95 @@ if (command == 'towebp') {
     let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
-    let img = await q.download?.()
+let img = await q.download?.()
     let url = await uploadImage(img)
     let res = `https://api.lolhuman.xyz/api/convert/towebp?apikey=9b817532fadff8fc7cb86862&img=${url}`
-    await conn.sendFile(m.chat, res, 'out.webp', m, false, { mimetype: 'image/webp', thumbnail: Buffer.alloc(0) })
+await conn.sendFile(m.chat, res, 'out.webp', m, false, { mimetype: 'image/webp', thumbnail: Buffer.alloc(0) })
     }
     
 if (command == 'towebpr') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadImage(img)
     let res = `https://api.lolhuman.xyz/api/convert/towebpwround?apikey=9b817532fadff8fc7cb86862&img=${url}`
-    await conn.sendFile(m.chat, res, 'out.webp', m, false, { mimetype: 'image/webp', thumbnail: Buffer.alloc(0) })
+await conn.sendFile(m.chat, res, 'out.webp', m, false, { mimetype: 'image/webp', thumbnail: Buffer.alloc(0) })
 }
 
 if (command == 'webptogif') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadImage(img)
     let res = `https://api.lolhuman.xyz/api/convert/webptogif?apikey=9b817532fadff8fc7cb86862&img=${url}`
-    await conn.sendFile(m.chat, res, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
+await conn.sendFile(m.chat, res, 'out.gif', m, false, { mimetype: 'image/gif', thumbnail: Buffer.alloc(0) })
 }
 
 if (command == 'webptomp4') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadImage(img)
     let res = `https://api.lolhuman.xyz/api/convert/webptomp4?apikey=9b817532fadff8fc7cb86862&img=${url}`
-    await conn.sendFile(m.chat, res, 'out.mp4', m, false, { mimetype: 'video/mp4', thumbnail: Buffer.alloc(0) })
+await conn.sendFile(m.chat, res, 'out.mp4', m, false, { mimetype: 'video/mp4', thumbnail: Buffer.alloc(0) })
 }
 
 if (command == 'imgtopdf') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadImage(img)
     let res = `https://api.lolhuman.xyz/api/convert/imgtopdf?apikey=9b817532fadff8fc7cb86862&img=${url}`
-    await conn.sendFile(m.chat, res, 'out.pdf', m, false, { mimetype: 'application/pdf', thumbnail: Buffer.alloc(0) })
+await conn.sendFile(m.chat, res, 'out.pdf', m, false, { mimetype: 'application/pdf', thumbnail: Buffer.alloc(0) })
 }
 
 if (command == 'topng') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadImage(img)
     let res = `https://api.lolhuman.xyz/api/convert/topng?apikey=9b817532fadff8fc7cb86862&img=${url}`
-    await conn.sendFile(m.chat, res, 'out.png', m, false, { mimetype: 'image/png', thumbnail: Buffer.alloc(0) })
+await conn.sendFile(m.chat, res, 'out.png', m, false, { mimetype: 'image/png', thumbnail: Buffer.alloc(0) })
 }
 
 if (command == 'tobase64') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadFile(img)
     let res = `https://api.lolhuman.xyz/api/filetobase64?apikey=9b817532fadff8fc7cb86862&file=${url}`
-    await conn.sendFile(m.chat, res, 'Hasil.txt', '', m)
+await conn.sendFile(m.chat, res, 'Hasil', '', m)
 }
 
 if (command == '64tofile') {
 if (!text) throw `balas gambar dengan perintah\n\n${usedPrefix + command} base64`
-    let res = `https://api.lolhuman.xyz/api/base64tofile?apikey=9b817532fadff8fc7cb86862&base=${text}`
-    await conn.sendFile(m.chat, res, 'Hasil', '', m)
+let res = `https://api.lolhuman.xyz/api/base64tofile?apikey=9b817532fadff8fc7cb86862&base=${text}`
+await conn.sendFile(m.chat, res, 'Hasil', '', m)
 }
 
 if (command == 'urltoimg') {
 if (!text) throw `balas gambar dengan perintah\n\n${usedPrefix + command} url`
-    let res = `https://api.lolhuman.xyz/api/urltoimg?apikey=9b817532fadff8fc7cb86862&url=${text}`
-    await conn.sendFile(m.chat, res, 'out.jpeg', m, false, { mimetype: 'image/jpeg', thumbnail: Buffer.alloc(0) })
+let res = `https://api.lolhuman.xyz/api/urltoimg?apikey=9b817532fadff8fc7cb86862&url=${text}`
+await conn.sendFile(m.chat, res, 'out.jpeg', m, false, { mimetype: 'image/jpeg', thumbnail: Buffer.alloc(0) })
 }
 
 if (command == 'filetourl') {
 let q = m.quoted ? m.quoted : m
     let mime = (q.msg || q).mimetype || ''
     if (!mime) throw `balas gambar dengan perintah\n\n${usedPrefix + command}`
-    if (!/image\/(jpe?g|png)/g.test(mime)) throw `_*Mime ${mime} tidak didukung!*_`
+
     let img = await q.download?.()
     let url = await uploadImage(img)
     let res = await fetch(`https://api.lolhuman.xyz/api/filetourl?apikey=9b817532fadff8fc7cb86862&file=${url}`)
@@ -107,17 +106,17 @@ let q = m.quoted ? m.quoted : m
     await m.reply(`*Result:* ${rem}`)
 }
 
-if (command == 'encmorse') {
+if (command == 'emorse') {
     if (!text) throw `balas gambar dengan perintah\n\n${usedPrefix + command} text`
-    let res = await fetch(`https://api.lolhuman.xyz/api/morse/encrypt?apikey=9b817532fadff8fc7cb86862&text=${text}`)
+let res = await fetch(`https://api.lolhuman.xyz/api/morse/encrypt?apikey=9b817532fadff8fc7cb86862&text=${text}`)
     let p = await res.json()
     let rem = p.result
     await m.reply(`*Result:* ${rem}`)
 }
 
-if (command == 'decmorse') {
+if (command == 'dmorse') {
     if (!text) throw `balas gambar dengan perintah\n\n${usedPrefix + command} kode morse`
-    let res = await fetch(`https://api.lolhuman.xyz/api/morse/decrypt?apikey=9b817532fadff8fc7cb86862&text=${text}`)
+let res = await fetch(`https://api.lolhuman.xyz/api/morse/decrypt?apikey=9b817532fadff8fc7cb86862&text=${text}`)
     let p = await res.json()
     let rem = p.result
     await m.reply(`*Result:* ${rem}`)
@@ -125,12 +124,12 @@ if (command == 'decmorse') {
 
 if (command == 'emojimix3') {
     if (!text) throw `perintah\n\n${usedPrefix + command} emot + emot`
-    let urut = text.split`+`
+let urut = text.split`+`
   let text1 = urut[0]
   let text2 = urut[1]
 
     let res = `https://api.lolhuman.xyz/api/emojimix/${text1}+${text2}?apikey=9b817532fadff8fc7cb86862`
-    let stiker = await sticker(false, res, global.packname, global.author)
+let stiker = await sticker(false, res, global.packname, global.author)
 conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
 }
 
@@ -143,33 +142,33 @@ await conn.sendFile(m.chat, res, 'out.jpeg', m, false, { mimetype: 'image/jpeg',
 
 if (command == 'smojimg2') {
     if (!text) throw `balas gambar dengan perintah\n\n${usedPrefix + command} emoji`
-    let res = await fetch(`https://api.lolhuman.xyz/api/smoji3/${text}?apikey=9b817532fadff8fc7cb86862`)
+let res = await fetch(`https://api.lolhuman.xyz/api/smoji3/${text}?apikey=9b817532fadff8fc7cb86862`)
     let p = await res.json()
-    let x = p.result.emoji
+    let x = p.result
     const sections = [
     {
 	title: "Theme",
 	rows: [
-	{title: "apple", rowId: usedPrefix + 'get ' + x.apple},
-{title: "au_by_kddi", rowId: usedPrefix + 'get ' + x.au_by_kddi},
-{title: "docomo", rowId: usedPrefix + 'get ' + x.docomo},
-{title: "emojidex", rowId: usedPrefix + 'get ' + x.emojidex},
-{title: "facebook", rowId: usedPrefix + 'get ' + x.facebook},
-{title: "google", rowId: usedPrefix + 'get ' + x.google},
-{title: "htc", rowId: usedPrefix + 'get ' + x.htc},
-{title: "joypixels", rowId: usedPrefix + 'get ' + x.joypixels},
-{title: "lg", rowId: usedPrefix + 'get ' + x.lg},
-{title: "messenger", rowId: usedPrefix + 'get ' + x.messenger},
-{title: "microsoft", rowId: usedPrefix + 'get ' + x.microsoft},
-{title: "mozilla", rowId: usedPrefix + 'get ' + x.mozilla},
-{title: "noto_emoji", rowId: usedPrefix + 'get ' + x.noto_emoji},
-{title: "openmoji", rowId: usedPrefix + 'get ' + x.openmoji},
-{title: "samsung", rowId: usedPrefix + 'get ' + x.samsung},
-{title: "skype", rowId: usedPrefix + 'get ' + x.skype},
-{title: "softbank", rowId: usedPrefix + 'get ' + x.softbank},
-{title: "sony_playstation", rowId: usedPrefix + 'get ' + x.sony_playstation},
-{title: "twitter", rowId: usedPrefix + 'get ' + x.twitter},
-{title: "whatsapp", rowId: usedPrefix + 'get ' + x.whatsapp}
+	{title: "apple", rowId: `${usedPrefix}get ${x.emoji.apple}`},
+{title: "au_by_kddi", rowId: `${usedPrefix}get ${x.emoji.au_by_kddi}`},
+{title: "docomo", rowId: `${usedPrefix}get ${x.emoji.docomo}`},
+{title: "emojidex", rowId: `${usedPrefix}get ${x.emoji.emojidex}`},
+{title: "facebook", rowId: `${usedPrefix}get ${x.emoji.facebook}`},
+{title: "google", rowId: `${usedPrefix}get ${x.emoji.google}`},
+{title: "htc", rowId: `${usedPrefix}get ${x.emoji.htc}`},
+{title: "joypixels", rowId: `${usedPrefix}get ${x.emoji.joypixels}`},
+{title: "lg", rowId: `${usedPrefix}get ${x.emoji.lg}`},
+{title: "messenger", rowId: `${usedPrefix}get ${x.emoji.messenger}`},
+{title: "microsoft", rowId: `${usedPrefix}get ${x.emoji.microsoft}`},
+{title: "mozilla", rowId: `${usedPrefix}get ${x.emoji.mozilla}`},
+{title: "noto_emoji", rowId: `${usedPrefix}get ${x.emoji.noto_emoji}`},
+{title: "openmoji", rowId: `${usedPrefix}get ${x.emoji.openmoji}`},
+{title: "samsung", rowId: `${usedPrefix}get ${x.emoji.samsung}`},
+{title: "skype", rowId: `${usedPrefix}get ${x.emoji.skype}`},
+{title: "softbank", rowId: `${usedPrefix}get ${x.emoji.softbank}`},
+{title: "sony_playstation", rowId: `${usedPrefix}get ${x.emoji.sony_playstation}`},
+{title: "twitter", rowId: `${usedPrefix}get ${x.emoji.twitter}`},
+{title: "whatsapp", rowId: `${usedPrefix}get ${x.emoji.whatsapp}`}
 	]
     }
 ]
@@ -186,7 +185,7 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 
 }
 //lo mau apa??
-handler.command = handler.help = ['64tofile', 'decmorse', 'emojimix3', 'encmorse', 'filetourl', 'imgtopdf', 'smojimg', 'smojimg2', 'tobase64', 'topng', 'towebp', 'towebpr', 'urltoimg', 'webptogif', 'webptomp4']
+handler.command = handler.help = ['64tofile', 'dmorse', 'emojimix3', 'emorse', 'filetourl', 'imgtopdf', 'smojimg', 'smojimg2', 'tobase64', 'topng', 'towebp', 'towebpr', 'urltoimg', 'webptogif', 'webptomp4']
 handler.tags = ['tools']
 
 export default handler
