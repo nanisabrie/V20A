@@ -277,27 +277,26 @@ await conn.sendHydrated(m.chat, caption, wm, x.result.apk_icon, x.result.apk_lin
 
 if (command == 'lacakip') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-let f = await fetch(`https://sys.airtel.lv/ip2country/${encodeURI(args[0])}/?full=true`)
-let jsons = await f.json()
-let caption = `*⎔┉━「 ${command} 」━┉⎔*`
-        for (let x of jsons) {
-        caption += `
+let f = await fetch(`https://sys.airtel.lv/ip2country/${args[0]}/?full=true`)
+let x = await f.json()
+let caption = `
 🤠 *Country:* ${x.country}
 *City:* ${x.city}
 *Asn:* ${x.asn}
 *Lat:* ${x.lat}
 *Lon:* ${x.lon}
-`}
-return m.reply(caption)
+`
+await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
 }
 
 if (command == 'lacakip2') {
 if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} 1.1.1.1`
-        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${encodeURI(args[0])}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
+        let f = await fetch(`https://api.ipbase.com/v2/info?ip=${args[0]}&apikey=vFpmzFljoTnbeJDzjAnwREXwQcVsTTNaMbEtkXgI`)
 let jsons = await f.json()
-let caption = `*⎔┉━「 ${command} 」━┉⎔*`
-        for (let x of jsons.data) {
-        caption += `
+let x = jsons.data
+let caption = `
 *Timezone:* ${x.timezone.current_time}
 *Id:* ${x.timezone.id}
 *Organization:* ${x.connection.organization}
@@ -306,8 +305,10 @@ let caption = `*⎔┉━「 ${command} 」━┉⎔*`
 
 *Country:* ${x.location.country.alpha3}
 *Emoji:* ${x.location.country.emoji}
-`}
-        return m.reply(caption)
+`
+        await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix}${command} ${text}`]
+            ], m)
 }
 
 if (command == 'icons') {

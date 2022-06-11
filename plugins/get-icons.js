@@ -8,10 +8,11 @@ let urut = text.split`|`
   let text1 = urut[0]
   let text2 = urut[1]
     
-let res = await fetch(`https://api.icons8.com/api/iconsets/v3/search?term=${text2}&amount=1&offset=0&platform=${text1}&language=en-US&exact_amount=1`)
+let res = await fetch(`https://api.icons8.com/api/iconsets/v3/search?term=${text2}&platform=${text1}`)
 let x = await res.json()
-let o = x.result
-let stiker = await sticker(null, global.API(o.search.share.url), global.packname, global.author)
+let o = x.result.search.subcategory
+let p = o.png.getRadom()
+let stiker = await sticker(null, global.API(p.link), global.packname, global.author)
     if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
     throw stiker.toString()
 }
