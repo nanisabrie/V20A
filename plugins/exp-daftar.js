@@ -99,7 +99,7 @@ let ngelink_ = ["https://www.youtube.com","https://www.instagram.com","http://fa
 'previewType':'pdf',
 'title':author,
 'body':bottime,
-'thumbnail':await(await fetch(thumbnailUrl.getRandom)).buffer(),
+'thumbnail':await(await fetch(thumbnailUrl.getRandom())).buffer(),
 'sourceUrl':gcwangsaf}},
 'caption':cap,
 'footer':wm,
