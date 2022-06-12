@@ -4,12 +4,13 @@ import fetch from 'node-fetch'
 let handler = async(m, { conn, groupMetadata, usedPrefix, text, args, command }) => {
 if (!text) throw 'Kata apa?'
 
-let res = await quotes(`${text}`)
+let res = await quotes(text)
+let x = await res.data
   await conn.sendButton(m.chat, `*Quote:*
-${res.quote}
+${x.quote}
 
-${res.bio}
-${res.author}
+${x.bio}
+${x.author}
 `, wm, null, [
                 ['Next', `${usedPrefix + command}`]
             ], m)

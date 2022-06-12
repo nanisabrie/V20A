@@ -19,7 +19,7 @@ ID:
 ${x.translated}
 
 _pronunciation_ : ${x.pronunciation} `, wm, null, [
-                ['Next', `${usedPrefix + command}`]
+                ['Menu', `${usedPrefix}menu`]
             ], m)
             
 
