@@ -25,8 +25,6 @@ let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
   if (!mime) throw 'Fotonya Mana?'
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
-    if (!text) return m.reply(`Balas gambar dengan perintah
-    ${usedPrefix + command}`)
     let img = await q.download?.()
     let url = await uploadImage(img)
 
