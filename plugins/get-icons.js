@@ -1,8 +1,9 @@
 import fetch from 'node-fetch'
+import { sticker } from '../lib/sticker.js'
 
 let handler = async(m, { conn, usedPrefix, text, args, command }) => {
 
-if (!text) throw `Contoh penggunaan ${usedPrefix}${command} emoji|2`
+if (!text) throw `Contoh penggunaan ${usedPrefix}${command} pentol|2`
 
 let urut = text.split`|`
   let text1 = urut[0]
@@ -14,7 +15,9 @@ let urut = text.split`|`
 
     for (let i = 0; i < ter.length; i++) {
         let out = ter[i].media[0].gif.url
-        await conn.sendMessage(m.chat, { video: { url: out }, caption: "Nihh banh", gifPlayback: true })
+        let stiker = await sticker(null, global.API(out), global.packname, global.author)
+    if (stiker) return conn.sendFile(m.chat, stiker, 'sticker.webp', '', m)
+    throw stiker.toString()
     }
 }
 

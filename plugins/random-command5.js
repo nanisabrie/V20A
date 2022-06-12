@@ -10,11 +10,10 @@ if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} angular`
 let f = await fetch(`https://api.cdnjs.com/libraries/${text}`)
 let x = await f.json()
 let caption = `🤠 *Name:* ${x.name}
-*latest:* ${x.latest}
-*description:* ${x.description}
-*filename:* ${x.filename}
-*homepage:* ${x.homepage}
-`
+*Latest:* ${x.latest}
+
+*Description:* ${x.description}
+*Homepage:* ${x.homepage}`
 await conn.sendButton(m.chat, caption, author, null, [
                 ['Next', `${usedPrefix}${command} ${text}`]
             ], m)
@@ -23,7 +22,7 @@ await conn.sendButton(m.chat, caption, author, null, [
 if (command == 'readqr') {
 let q = m.quoted ? m.quoted : m
   let mime = (q.msg || q).mimetype || ''
-  if (!mime) throw 'Fotonya Mana?'
+  if (!mime) throw 'Fotonya Mana? Reply gambar yg gk ada button aja'
   if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
     let img = await q.download?.()
     let url = await uploadImage(img)
@@ -93,8 +92,7 @@ let q = m.quoted ? m.quoted : m
 
 let f = await fetch(`http://api.resmush.it/ws.php/?img=${url}`)
 let xc = await f.json()
-let r = xc.result
-let x = r.getRandom()
+let x = xc.result
 let caption = `*Src:* ${x.src}
 *Size:* ${x.src_size}
 
