@@ -1,38 +1,27 @@
-import translate from 'translate-google-api'
-const defaultLang = 'id'
-const tld = 'en'
+import fetch from 'node-fetch'
 
 let handler = async (m, { args, usedPrefix, command }) => {
-    let err = `
-Contoh:
-${usedPrefix + command} <lang> [text]
-${usedPrefix + command} id your messages
-Daftar bahasa yang didukung: https://cloud.google.com/translate/docs/languages
-`.trim()
-
     let lang = args[0]
     let text = args.slice(1).join(' ')
-    if ((args[0] || '').length !== 2) {
-        lang = defaultLang
-        text = args.join(' ')
-    }
     if (!text && m.quoted && m.quoted.text) text = m.quoted.text
+let res = await fetch(`https://api.lolhuman.xyz/api/translate/auto/id?apikey=9b817532fadff8fc7cb86862&text=${text}`)
+let xc = await res.json()
+let x = xc.result
+  await conn.sendButton(m.chat, `*From:*
+${x.from}
+*To:*
+${x.to}
 
-    let result
-    try {
-        result = await translate(`${text}`, {
-            tld,
-            to: lang,
-        })
-    } catch (e) {
-        result = await translate(`${text}`, {
-            tld,
-            to: defaultLang,
-        })
-        throw err
-    } finally {
-        m.reply(result[0])
-    }
+EN:
+${x.original}
+
+ID:
+${x.translated}
+
+_pronunciation_ : ${x.pronunciation} `, wm, null, [
+                ['Next', `${usedPrefix + command}`]
+            ], m)
+            
 
 }
 handler.help = ['translate2'].map(v => v + ' <lang> <teks>')
