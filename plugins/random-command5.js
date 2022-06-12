@@ -7,9 +7,8 @@ if (!args[0]) throw `Contoh penggunaan ${usedPrefix}${command} angular`
 
 let f = await fetch(`https://api.cdnjs.com/libraries/${text}`)
 let x = await f.json()
-let caption = `🤠 *Country:* ${x.name}
+let caption = `🤠 *Name:* ${x.name}
 *latest:* ${x.latest}
-*sri:* ${x.sri}
 *description:* ${x.description}
 *filename:* ${x.filename}
 *homepage:* ${x.homepage}
@@ -20,7 +19,7 @@ await conn.sendButton(m.chat, caption, author, null, [
 }
 
 }
-handler.command = handler.help = ['cdnjs', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'proxysite', 'mirrorcreator', 'ouo', 'ouoshort', 'shortlink', 'shortlink2', 'shortlink3', 'shortlink4', 'icons']
+handler.command = handler.help = ['cdnjs']
 handler.tags = ['tools']
 
 export default handler
