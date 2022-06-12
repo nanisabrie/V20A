@@ -106,8 +106,24 @@ await conn.sendButton(m.chat, caption, author, x.dest, [
             ], m)
 }
 
+if (command == 'toascii') {
+let q = m.quoted ? m.quoted : m
+  let mime = (q.msg || q).mimetype || ''
+  if (!mime) throw 'Fotonya Mana?'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+
+let f = await fetch(`https://process.filestackapi.com/A7lMmfpoSTu3i5i7yBXeQz/ascii=colored:true/${url}`)
+let xc = await f.text()
+let caption = `${xc}`
+await conn.sendButton(m.chat, caption, author, null, [
+                ['Get Img', `${usedPrefix}get ${x.dest}`]
+            ], m)
 }
-handler.command = handler.help = ['cdnjs', 'readqr', 'animechan', 'whatanime', 'isgd', 'resmush']
+
+}
+handler.command = handler.help = ['cdnjs', 'readqr', 'animechan', 'whatanime', 'isgd', 'resmush', 'toascii']
 handler.tags = ['tools']
 
 export default handler

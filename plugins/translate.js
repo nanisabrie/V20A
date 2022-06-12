@@ -1,6 +1,6 @@
 import translate from 'translate-google-api'
-const defaultLang = 'en'
-const tld = 'cn'
+const defaultLang = 'id'
+const tld = 'en'
 
 let handler = async (m, { args, usedPrefix, command }) => {
     let err = `
@@ -35,8 +35,8 @@ Daftar bahasa yang didukung: https://cloud.google.com/translate/docs/languages
     }
 
 }
-handler.help = ['translate'].map(v => v + ' <lang> <teks>')
+handler.help = ['translate2'].map(v => v + ' <lang> <teks>')
 handler.tags = ['tools']
-handler.command = /^(tr(anslate)?)$/i
+handler.command = /^(translate2)$/i
 
 export default handler
