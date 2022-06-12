@@ -35,7 +35,7 @@ let handler = async (m, { text }) => {
       result = await fn(json)
       break
     } catch (e) {
-      lastErr = e
+      m.reply('Erorr')
     }
   }
   m.reply(result)
