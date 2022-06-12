@@ -1,19 +1,61 @@
 let handler = async(m, { conn, text, usedPrefix, command }) => {
-  if (!text) return m.reply(`Example : ${usedPrefix + command} bj \n*List Efek:*\nbj\nero\ncum\nles\nneko\nfeet\nyuri\ntrap\nngif\nlewd\nfeed\neron\nsolo\ngasm\npoke\nanal\nholo\nketa\ntits\nkuni\nkiss\nerok\nsmug\nbaka\nsolog\nfeetg\nlewdk\nwaifu\npussy\ntickle\nfemdom\ncuddle\nhentai\neroyuri\ncum_jpg\nblowjob\nerofeet\nholoero\nclassic\nerokemo\nfox_girl\nfutanari\nhololewd\nlewdkemo\nwallpaper\npussy_jpg\nkemonomimi\nnsfw_avatar\nnsfw_neko_gif\nrandom_hentai_gif`)
+  if (!text) return m.reply(`Example : ${usedPrefix + command} bj
+  *List Efek:*
+
+• bj
+• ero
+• cum
+• les
+• neko
+• feet
+• yuri
+• trap
+• ngif
+• lewd
+• feed
+• eron
+• solo
+• gasm
+• poke
+• anal
+• holo
+• keta
+• tits
+• kuni
+• kiss
+• erok
+• smug
+• baka
+• solog
+• feetg
+• lewdk
+• waifu
+• pussy
+• tickle
+• femdom
+• cuddle
+• hentai
+• eroyuri
+• cum_jpg
+• blowjob
+• erofeet
+• holoero
+• classic
+• erokemo
+• fox_girl
+• futanari
+• hololewd
+• lewdkemo
+• wallpaper
+• pussy_jpg
+• kemonomimi
+• nsfw_avatar
+• nsfw_neko_gif
+• random_hentai_gif`)
         let images = `https://api.lolhuman.xyz/api/random/nsfw/${text}?apikey=9b817532fadff8fc7cb86862`
-        let buttons = [
-                    {buttonId: `.menu`, buttonText: {displayText: '🔙 Menu'}, type: 1},
-                    {buttonId: `${usedPrefix + command}`, buttonText: {displayText: '❇️ Effect'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: images },
-                    caption: `*⎔┉━「 Random 」━┉⎔*
-🤠 *Query* : ${text}`,
-                    footer: conn.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                conn.sendMessage(m.chat, buttonMessage, { quoted: m })
+        await conn.sendButton(m.chat, `Nih ${command}`, wm, images, [
+                ['Next', `${usedPrefix}${command}`]
+            ], m)
 }
 handler.help = ['randem2 <keyword>']
 handler.tags = ['tools']

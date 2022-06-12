@@ -377,20 +377,18 @@ let caption = `*Result:* ${x}`
             ], m)
 }
 
-if (command == 'icons') {
+if (command == 'tenor') {
 if (!text) throw `Gunakan contoh ${usedPrefix + command} Home`
 
 	const sections = [
     {
 	title: "Theme",
 	rows: [
-	{title: "win8", rowId: usedPrefix + 'geticons win8|' + text},
-{title: "win10", rowId: usedPrefix + 'geticons win10|' + text},
-{title: "ios7", rowId: usedPrefix + 'geticons ios7|' + text},
-{title: "android", rowId: usedPrefix + 'geticons android|' + text},
-{title: "androidL", rowId: usedPrefix + 'geticons androidL|' + text},
-{title: "color", rowId: usedPrefix + 'geticons color|' + text},
-{title: "office", rowId: usedPrefix + 'geticons office|' + text}
+	{title: "1 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|1'},
+	{title: "2 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|2'},
+	{title: "3 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|3'},
+	{title: "4 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|4'},
+	{title: "5 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|5'}
 	]
     }
 ]
@@ -406,7 +404,7 @@ conn.sendMessage(m.chat, listMessage, {quoted:{key : {participant : '0@s.whatsap
 }
 
 }
-handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'proxysite', 'mirrorcreator', 'ouo', 'ouoshort', 'shortlink', 'shortlink2', 'shortlink3', 'shortlink4', 'icons']
+handler.command = handler.help = ['jadian2', 'menikah', 'metercinta', 'bertanya', 'bokep', 'kusonime', 'membucin', 'mencerpen', 'mencersex', 'asmaulhusna', 'hadistku', 'quranku', 'memeindo', 'shopee', 'stimker', 'randommeme', 'memedarkjoke', 'beasiswa', 'apkdown', 'proxysite', 'mirrorcreator', 'ouo', 'ouoshort', 'shortlink', 'shortlink2', 'shortlink3', 'shortlink4', 'tenor']
 handler.tags = ['random']
 
 export default handler
