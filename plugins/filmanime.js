@@ -5,15 +5,23 @@ let handler = async(m, { conn, text }) => {
     if (!text) return conn.reply(m.chat, 'Harap Masukan Nama Film Animenya', m)
 
 	let res = await fetch(`https://api.lolhuman.xyz/api/lk21?apikey=9b817532fadff8fc7cb86862&query=${text}`)
-	 json = await res.json()
-  let {
-    title,
-    genre,
-    rating,
-    link,
-    desc,
-  } = json.result
-	 	let hasil = `*🎥Film Dari ${text}*\n\n🏷️Judul : ${title}\n🔖Genre: : ${genre}\n⭐Rating : ${rating}\n🎥Link Movie : ${link}\n📖Sinopsis : ${desc}`.trim()
+	 let jsons = await res.json()
+	 let x = jsons.result
+	 
+let hasil = `🎥Film Dari : ${x.title}
+🔖Genre: : ${x.genre}
+🔖Views: : ${x.views}
+🔖Duration: : ${x.duration}
+🔖Tahun: : ${x.tahun}
+🔖Location: : ${x.location}
+🔖Rilis: : ${x.date_release}
+🔖Bahasa: : ${x.language}
+⭐Rating : ${x.rating}
+
+🎥Link Movie : ${x.link_dl}
+Link : ${x.link}
+
+📖Sinopsis : ${x.desc}`.trim()
     conn.sendButton(m.chat, json.result.thumbnail, hasil, '© Hinata-Md', 'Internet', '.? internet', m)
 }
 handler.help = ['filmanime', 'film'].map(v => v + '<film>')

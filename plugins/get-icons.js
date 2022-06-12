@@ -15,7 +15,6 @@ let urut = text.split`|`
     for (let i = 0; i < ter.length; i++) {
         let out = ter[i].media[0].gif.url
         await conn.sendMessage(m.chat, { video: { url: out }, caption: "Nihh banh", gifPlayback: true })
-        await conn.sendFile(m.chat, out, 'sticker.webp', '', m)
     }
 }
 
