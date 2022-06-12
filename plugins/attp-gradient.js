@@ -69,35 +69,15 @@ if (command == 'attpg2') {
 }
 if (command == 'quotex') {
     let images = `https://violetics.pw/api/canvas/quotes?apikey=beta&text=${teks}&author=HinataMd`
-        let buttons = [
-                    {buttonId: `/quotes ${teks}`, buttonText: {displayText: '➡️➡️Next Quotes➡️➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: images },
-                    caption: `*⎔┉━「 ${command} 」━┉⎔*
-🤠 *Query* : *${teks}*
-`,
-                    footer: conn.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                conn.sendMessage(m.chat, buttonMessage, { quoted: m })
+        await conn.sendButton(m.chat, caption, author, images, [
+                ['Next', `${usedPrefix}${command} ${teks}`]
+            ], m)
 }
 if (command == 'tahta') {
 let images = `https://violetics.pw/api/jimp/tahta?apikey=beta&text=${teks}`
-        let buttons = [
-                    {buttonId: `/tahta ${teks}`, buttonText: {displayText: '➡️➡️Next Quotes➡️➡️'}, type: 1}
-                ]
-                let buttonMessage = {
-                    image: { url: images },
-                    caption: `*⎔┉━「 ${command} 」━┉⎔*
-🤠 *Query* : *${teks}*
-`,
-                    footer: conn.user.name,
-                    buttons: buttons,
-                    headerType: 4
-                }
-                conn.sendMessage(m.chat, buttonMessage, { quoted: m })
+                await conn.sendButton(m.chat, caption, author, images, [
+                ['Next', `${usedPrefix}${command} ${teks}`]
+            ], m)
 }
 
 }
