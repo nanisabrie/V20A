@@ -13,8 +13,8 @@ let urut = text.split`|`
 
     for (let i = 0; i < json.results; i++) {
         let fileId = json.results[i].url
-        out = await webp2mp4(fileId)
-        await conn.sendFile(m.chat, out, 'out.gif', m, false, { mimetype: 'video/gif', thumbnail: Buffer.alloc(0) })
+        let out = await webp2mp4(fileId)
+        await conn.sendMessage(m.chat, { video: { url: out }, caption: "Nih!", gifPlayback: true })
     }
 }
 
