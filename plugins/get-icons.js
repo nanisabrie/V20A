@@ -11,7 +11,7 @@ let urut = text.split`|`
     let gas = await fetch(`https://g.tenor.com/v1/search?q=${text1}&key=LIVDSRZULELA&limit=${text2}`)
     let json = await gas.json()
 
-    for (let i = 0; i < json.results.media.length; i++) {
+    for (let i = 0; i < json.results.media; i++) {
         let fileId = json.results.media[i].url
         let stiker = await sticker(false, fileId, global.packname, global.author)
         await conn.sendFile(m.chat, stiker, null, { asSticker: true })
