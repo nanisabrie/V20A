@@ -9,10 +9,10 @@ let urut = text.split`|`
   
     let gas = await fetch(`https://g.tenor.com/v1/search?q=${text1}&key=LIVDSRZULELA&limit=${text2}`)
     let json = await gas.json()
-    let ter = json.results.media
+    let ter = json.results
 
     for (let i = 0; i < ter.length; i++) {
-        let out = ter[i].gif.url
+        let out = ter[i].media[0].gif[0].url
         await conn.sendMessage(m.chat, { video: { url: out }, caption: ".s", gifPlayback: false })
     }
 }
