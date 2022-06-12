@@ -67,11 +67,9 @@ if (command == 'artinama') {
 let res = await fetch(`https://api.lolhuman.xyz/api/artinama?apikey=9b817532fadff8fc7cb86862&nama=${text}`)
   let x = await res.json()
   await conn.sendButton(m.chat, `*Artinama:*
-  ${x.result}
-  
-  *Author:* ${x.author}`, wm, null, [
+  ${x.result}`, wm, null, [
                 ['Next', `${usedPrefix + command}`],
-                ['Translate', `${usedPrefix}tr id ${x.quote}`]
+                ['Translate', `${usedPrefix}tr id ${x.result}`]
             ], m)
 }
 

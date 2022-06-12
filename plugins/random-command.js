@@ -378,17 +378,17 @@ let caption = `*Result:* ${x}`
 }
 
 if (command == 'tenor') {
-if (!text) throw `Gunakan contoh ${usedPrefix + command} Home`
+if (!text) throw `Gunakan contoh ${usedPrefix + command} spongebob`
 
 	const sections = [
     {
 	title: "Theme",
 	rows: [
-	{title: "1 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|1'},
-	{title: "2 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|2'},
-	{title: "3 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|3'},
-	{title: "4 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|4'},
-	{title: "5 Sticker", rowId: usedPrefix + 'gettenor ' + text + '|5'}
+	{title: "1 Aja banh", rowId: usedPrefix + 'gettenor ' + text + '|1'},
+	{title: "2 Aja banh", rowId: usedPrefix + 'gettenor ' + text + '|2'},
+	{title: "3 Aja banh", rowId: usedPrefix + 'gettenor ' + text + '|3'},
+	{title: "4 Aja banh", rowId: usedPrefix + 'gettenor ' + text + '|4'},
+	{title: "5 Aja banh", rowId: usedPrefix + 'gettenor ' + text + '|5'}
 	]
     }
 ]

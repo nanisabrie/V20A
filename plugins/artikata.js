@@ -7,7 +7,7 @@ let res = await fetch(`https://leyscoders-api.herokuapp.com/api/arti-kata?q=${te
   await conn.sendButton(m.chat, `*Artikata: ${text}*
   ${x.result}`, wm, null, [
                 ['Next', `${usedPrefix + command}`],
-                ['Translate', `${usedPrefix}tr id ${x.quote}`]
+                ['Translate', `${usedPrefix}tr id ${x.result}`]
             ], m)
 
 }

@@ -24,7 +24,7 @@ const artinama_api = [
   }]
 ]
 
-let handler = async (m, { text }) => {
+let handler = async(m, { conn, usedPrefix, text, args, command }) => {
   if (!text) throw 'Namanya siapa?'
   let result = ''
   for (let [origin, pathname, query, apikey, fn] of artinama_api) {
@@ -40,7 +40,7 @@ let handler = async (m, { text }) => {
   }
   await conn.sendButton(m.chat, result, wm, null, [
                 ['Next', `${usedPrefix + command}`],
-                ['Translate', `${usedPrefix}tr id ${x.quote}`]
+                ['Translate', `${usedPrefix}tr id ${result}`]
             ], m)
 }
 handler.help = ['artinama2'].map(v => v + ' [nama]')

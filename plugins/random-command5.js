@@ -72,8 +72,44 @@ await conn.sendButton(m.chat, caption, author, x.image, [
             ], m)
 }
 
+if (command == 'isgd') {
+if (!text) throw `Teks Mana?
+Contoh: ${usedPrefix + command} https://google.com`
+let f = await fetch(`https://is.gd/create.php?format=json&url=${text}`)
+let x = await f.json()
+let caption = `*Shorturl:* ${x.shorturl}`
+await conn.sendButton(m.chat, caption, author, null, [
+                ['Next', `${usedPrefix + command}`]
+            ], m)
 }
-handler.command = handler.help = ['cdnjs', 'readqr', 'animechan', 'whatanime']
+
+if (command == 'resmush') {
+let q = m.quoted ? m.quoted : m
+  let mime = (q.msg || q).mimetype || ''
+  if (!mime) throw 'Fotonya Mana?'
+  if (!/image\/(jpe?g|png)/.test(mime)) throw `Tipe ${mime} tidak didukung!`
+    let img = await q.download?.()
+    let url = await uploadImage(img)
+
+let f = await fetch(`http://api.resmush.it/ws.php/?img=${url}`)
+let xc = await f.json()
+let r = xc.result
+let x = r.getRandom()
+let caption = `*Src:* ${x.src}
+*Size:* ${x.src_size}
+
+*Dest:* ${x.dest}
+*Size:* ${x.dest_size}
+
+*Percent:* ${x.percent}
+*Expires:* ${x.expires}`
+await conn.sendButton(m.chat, caption, author, x.dest, [
+                ['Get Img', `${usedPrefix}get ${x.dest}`]
+            ], m)
+}
+
+}
+handler.command = handler.help = ['cdnjs', 'readqr', 'animechan', 'whatanime', 'isgd', 'resmush']
 handler.tags = ['tools']
 
 export default handler
