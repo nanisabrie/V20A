@@ -1,15 +1,15 @@
 import fetch from 'node-fetch'
-let handler = async (m, { text }) => {
+let handler = async(m, { conn, usedPrefix, text, args, command }) => {
     if (!text) throw `Uhm.. Teksnya mana?`
-    let res = await fetch(`https://x-restapi.herokuapp.com/api/arti-kata?q=${text}&apikey=BETA`)
-    if (!res.ok) throw await res.text()
-    let json = await res.json()
-    if (!json.status) throw json
-    m.reply(`
-*Pencarian: ${text}*
-${json.artikata}
+    
+let res = await fetch(`https://leyscoders-api.herokuapp.com/api/arti-kata?q=${text}&apikey=MIMINGANZ`)
+  let x = await res.json()
+  await conn.sendButton(m.chat, `*Artikata: ${text}*
+  ${x.result}`, wm, null, [
+                ['Next', `${usedPrefix + command}`],
+                ['Translate', `${usedPrefix}tr id ${x.quote}`]
+            ], m)
 
-`.trim())
 }
 handler.help = ['artikata <teks>']
 handler.tags = ['internet']

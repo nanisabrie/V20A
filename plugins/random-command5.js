@@ -32,7 +32,7 @@ let f = await fetch(`https://api.lolhuman.xyz/api/read-qr?apikey=9b817532fadff8f
 let x = await f.json()
 let caption = `🤠 *Hasil:* ${x.result}`
 await conn.sendButton(m.chat, caption, author, null, [
-                ['Next', `${usedPrefix}${command} ${text}`]
+                ['To Qr', `${usedPrefix}qr ${x.result}`]
             ], m)
 }
 
@@ -68,8 +68,7 @@ let caption = `🤠 *Anilist:* ${x.anilist}
 *Kecocokan:* ${x.similarity}
 `
 await conn.sendButton(m.chat, caption, author, x.image, [
-                ['Get Video', `${usedPrefix}get ${x.video}`],
-                ['Next', `${usedPrefix + command} ${url}`]
+                ['Get Video', `${usedPrefix}get ${x.video}`]
             ], m)
 }
 

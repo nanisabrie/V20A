@@ -35,13 +35,16 @@ let handler = async (m, { text }) => {
       result = await fn(json)
       break
     } catch (e) {
-      m.reply('Erorr')
+      m.reply('Load..')
     }
   }
-  m.reply(result)
+  await conn.sendButton(m.chat, result, wm, null, [
+                ['Next', `${usedPrefix + command}`],
+                ['Translate', `${usedPrefix}tr id ${x.quote}`]
+            ], m)
 }
-handler.help = ['artinama'].map(v => v + ' [nama]')
+handler.help = ['artinama2'].map(v => v + ' [nama]')
 handler.tags = ['kerang']
-handler.command = ['artinama']
+handler.command = ['artinama2']
 
 export default handler
