@@ -68,7 +68,8 @@ let caption = `🤠 *Anilist:* ${x.anilist}
 *Kecocokan:* ${x.similarity}
 `
 await conn.sendButton(m.chat, caption, author, x.image, [
-                ['Next', `${usedPrefix}${command}get ${x.video}`]
+                ['Get Video', `${usedPrefix}get ${x.video}`],
+                ['Next', `${usedPrefix + command} ${url}`]
             ], m)
 }
 

@@ -21,8 +21,8 @@ let hasil = `🎥Film Dari : ${x.title}
 🎥Link Movie : ${x.link_dl}
 Link : ${x.link}
 
-📖Sinopsis : ${x.desc}`.trim()
-    conn.sendButton(m.chat, json.result.thumbnail, hasil, '© Hinata-Md', 'Internet', '.? internet', m)
+📖Sinopsis : ${x.desc}`
+    conn.sendButton(m.chat, x.thumbnail, hasil, '© Hinata-Md', 'Internet', '.? internet', m)
 }
 handler.help = ['filmanime', 'film'].map(v => v + '<film>')
 handler.tags = ['internet', 'anime']
