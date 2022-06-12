@@ -12,8 +12,8 @@ let urut = text.split`|`
     let gas = await fetch(`https://g.tenor.com/v1/search?q=${text1}&key=LIVDSRZULELA&limit=${text2}`)
     let json = await gas.json()
 
-    for (let i = 0; i < json.results.media; i++) {
-        let fileId = json.results.media[i].url
+    for (let i = 0; i < json.results; i++) {
+        let fileId = json.results[i].url
         let out = await webp2mp4(fileId)
         await conn.sendFile(m.chat, out, 'out.gif', m, false, { mimetype: 'video/gif', thumbnail: Buffer.alloc(0) })
         await conn.sendFile(m.chat, out, null, { asSticker: true })
