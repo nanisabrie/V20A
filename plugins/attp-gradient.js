@@ -69,13 +69,13 @@ if (command == 'attpg2') {
 }
 if (command == 'quotex') {
     let images = `https://violetics.pw/api/canvas/quotes?apikey=beta&text=${teks}&author=HinataMd`
-        await conn.sendButton(m.chat, caption, author, images, [
+        await conn.sendButton(m.chat, `${teks}`, author, images, [
                 ['Next', `${usedPrefix}${command} ${teks}`]
             ], m)
 }
 if (command == 'tahta') {
 let images = `https://violetics.pw/api/jimp/tahta?apikey=beta&text=${teks}`
-                await conn.sendButton(m.chat, caption, author, images, [
+                await conn.sendButton(m.chat, `${teks}`, author, images, [
                 ['Next', `${usedPrefix}${command} ${teks}`]
             ], m)
 }
