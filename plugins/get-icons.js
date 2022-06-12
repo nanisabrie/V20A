@@ -13,7 +13,8 @@ let urut = text.split`|`
 
     for (let i = 0; i < ter.length; i++) {
         let out = ter[i].url
-        await conn.sendMessage(m.chat, { video: { url: out }, caption: "Nih!", gifPlayback: true })
+        let so = await conn.sendMessage(m.chat, { video: { url: out }, caption: "Nih!", gifPlayback: false })
+        m.reply(so, '.s')
     }
 }
 
