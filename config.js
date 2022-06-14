@@ -6,13 +6,10 @@ import moment from 'moment-timezone'
 
 /**Owner number**/
 global.owner = [
-  ['601161739141', '️Owner1 Hinata-Md', true],
-  ['60102650191', '️Owner2 Hinata-Md', true],
-  ['6282195322106', '️Owner3 Hinata-Md', true],
-  ['6282195322106', '️Owner4 Hinata-Md', true],
-  ['6282195322106', '️Owner5 Hinata-Md', true],
-  ['6282195322106', '️Owner6 Hinata-Md', true],
-  ['6282195322106', '️Owner Hinata-Md', true]
+  ['601161739141', '️Owner asuna', true],
+  ['60102650191', '️Owner4 Hinata-Md', true],
+  ['601131261227', '️Owner kirisaki', true],
+  ['60102835580', '️Owner kuro', true],
   // [number, dia creator/owner?, dia developer?]
 ] // Put your number here
 global.mods = [] // Want some help?
@@ -68,9 +65,9 @@ let keyalpha = api[Math.floor(Math.random() * api.length)]
 global.apikeys = keyalpha
 
 //Thumb
-global.wm = '                「 Hinata-Md あ⁩ 」' //Main Watermark
+global.wm = '                「 Asuna⁩ 」' //Main Watermark
 global.wm2 = '꒷︶꒷꒥꒷ ‧₊˚ ꒰ฅ˘օառɛʀ - chαn˘ฅ ꒱ ‧₊˚꒷︶꒷꒥꒷'
-global.wm3 = '⫹⫺ Hinata-Md'
+global.wm3 = 'Asuna'
 global.botdate = `⫹⫺ Date :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
 global.bottime = `𝗧 𝗜 𝗠 𝗘 : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}`
 global.titlebot = `⫹⫺ Time Sever : ${moment.tz('Asia/Jakarta').format('HH:mm:ss')}\n⫹⫺ Date Server :  ${moment.tz('Asia/Jakarta').format('DD/MM/YY')}`
@@ -104,7 +101,7 @@ global.fpagedoc = '999'
 
 // Sticker WM
 global.packname = 'Created By'
-global.author = "Hinata-Md X Wudysoft"
+global.author = "Asuna"
 global.multiplier = 69 // The higher, The harder levelup
 
 //
