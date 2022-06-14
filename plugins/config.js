@@ -78,13 +78,9 @@ global.logo = "https://i.pinimg.com/564x/1d/10/8e/1d108e56fb96be61d9b48f7e17dd95
 global.gcwangsaf = "https://chat.whatsapp.com/HAuQGhEBwqFK8CzrrYOwLq"//Link Group whatsapp
 
 //Donasi
-global.saweria = "https://saweria.co/wudysoft"// website saweria.co
-global.dana = ["0887435373103"]
-global.pulsa = ["082195322106"]//pulsa here
-global.trakteer = "https://trakteer.id/wudysoft"//Link url https://
-global.paypal = "wudysoft@gmail.com"//paypal email
-global.gopay = "082195322106"//Numver for Payment digital Gopay Gojek
-
+global.touchandgoewallet = ["1161739141"]
+global.umobile = ["01161739141"]
+global.digi = ["01131261227"]
 
 //Rpg
 global.rpg = {
