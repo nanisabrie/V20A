@@ -81,7 +81,7 @@ global.thumbnailUrl = [
   'https://telegra.ph/file/de92ed4a729887ffc974c.jpg', 'https://telegra.ph/file/00ce42a193b1dbbf907d4.jpg'
 ]
 
-global.sgc = 'https://chat.whatsapp.com/HAuQGhEBwqFK8CzrrYOwLq'
+global.sgc = 'https://chat.whatsapp.com/HmWcYAk44it4NkGjwaXpuu'
 global.sig = 'https://instagram.com/wudysoft.2'
 
 //Ini cuma simpenan owner kanna kok :v
@@ -110,7 +110,7 @@ global.wait = 'Wait...'
 global.render = 'Render...'
 global.webs = 'https://s.id/Cerdasin62/'//Your Website
 global.logo = "https://i.pinimg.com/564x/1d/10/8e/1d108e56fb96be61d9b48f7e17dd95b7.jpg"//Your logo
-global.gcwangsaf = "https://chat.whatsapp.com/HAuQGhEBwqFK8CzrrYOwLq"//Link Group whatsapp
+global.gcwangsaf = "https://chat.whatsapp.com/HmWcYAk44it4NkGjwaXpuu"//Link Group whatsapp
 
 //Donasi
 global.touchandgoewallet = ["1161739141"]
