@@ -1,18 +1,18 @@
-let limit = 20
+let limit = 10
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let handler = async (m, { conn, args, isPrems, isOwner }) => {
-  if (!args || !args[0]) throw 'Uhm... urlnya mana?'
+  if (!args || !args[0]) throw `Harap masukkan URL Youtube yang ingin di download!\n\nContoh: ${usedPrefix + command} https://youtu.be/zyJJlPSeEpo`
   let chat = global.db.data.chats[m.chat]
   const isY = /y(es)/gi.test(args[1])
   const { thumbnail, video: _video, title } = await youtubedl(args[0]).catch(async _ => await youtubedlv2(args[0])).catch(async _ => await youtubedlv3(args[0]))
-  const limitedSize = ( limit) * 1024
+  const limitedSize = (isPrems || isOwner ? 99 : limit) * 1024
   let video, source, res, link, lastError, isLimit
   for (let i in _video) {
     try {
       video = _video[i]
       isLimit = limitedSize < video.fileSize
-       if (isLimit) continue
+      if (isLimit) continue
       link = await video.download()
       if (link) res = await fetch(link)
       isLimit = res?.headers.get('content-length') && parseInt(res.headers.get('content-length')) < limitedSize
@@ -25,18 +25,20 @@ let handler = async (m, { conn, args, isPrems, isOwner }) => {
     }
   }
   if ((!(source instanceof ArrayBuffer) || !link || !res.ok) && !isLimit) throw 'Error: ' + (lastError || 'Can\'t download video')
+  if (!isY && !isLimit) await conn.sendFile(m.chat, thumbnail, 'thumbnail.jpg', `
+Judul: ${title}
+Filesize ${video.fileSizeH}
+*${isLimit ? 'Pakai ' : ''}Link:* ${link}
+`.trim(), m)
   let _thumb = {}
   try { _thumb = { thumbnail: await (await fetch(thumbnail)).buffer() } }
   catch (e) { }
-  if (!isY && !isLimit) m.reply(isLimit ? `Size ${video.filesizeH}\nUkuran file diatas ${limit} MB, download sendiri: ${audio}` : wait)
   if (!isLimit) await conn.sendFile(m.chat, link, title + '.mp4', `
-*📌Title:* ${title}
-*🗎 Filesize:* ${video.fileSizeH}
-
-Noh 
+Judul: ${title}
+Filesize: ${video.fileSizeH}
 `.trim(), m, false, {
     ..._thumb,
-    asDocument: true
+    asDocument: chat.useDocument
   })
 }
 handler.help = ['mp4', 'v', ''].map(v => 'yt' + v + ` <url> <without message>`)
