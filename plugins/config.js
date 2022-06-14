@@ -6,7 +6,7 @@ import fs from 'fs'
 /**Owner number**/
 global.owner = [
   ['601161739141', '️Owner asuna', true],
-  ['60102650191', '️Owner4 Hinata-Md', true],
+  ['60102650191',
   ['601131261227', '️Owner kirisaki', true],
   ['60102835580', '️Owner kuro', true],
   // [number, dia creator/owner?, dia developer?]
