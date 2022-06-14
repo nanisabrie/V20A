@@ -65,8 +65,8 @@ global.apikeys = keyalpha
 
 // Sticker WM
 global.packname = 'Created By\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n'
-global.author = 'Hinata-Md'
-global.wm = "Hinata-Md X Wudysoft"
+global.author = 'Asuna'
+global.wm = "Asua"
 global.multiplier = 69 // The higher, The harder levelup
 
 //
